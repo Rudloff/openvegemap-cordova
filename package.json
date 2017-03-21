@@ -1,0 +1,12 @@
+{
+  "name": "openvegemap-cordova",
+  "license": "GPL-3.0",
+  "description": "OpenVegeMap Cordova app",
+  "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
+  "dependencies": {
+    "openvegemap": "0.2.0"
+  },
+  "scripts": {
+    "postinstall": "cd www/; bower install; npm install; grunt"
+  }
+}
