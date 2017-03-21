@@ -7,6 +7,6 @@
     "openvegemap": "0.2.0"
   },
   "scripts": {
-    "postinstall": "cd www/; bower install; npm install; grunt"
+    "postinstall": "cd www/; npm install; bower install; grunt"
   }
 }
