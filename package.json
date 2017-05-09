@@ -7,7 +7,7 @@
         "openvegemap": "0.2.0",
         "cordova-android": "~6.1.2",
         "cordova-plugin-exclude-files": "~0.2.0",
-        "cordova-plugin-geolocation": "~1.0.0",
+        "cordova-plugin-geolocation": "~2.4.3",
         "cordova-plugin-overview": "~0.1.0",
         "cordova-plugin-whitelist": "1",
         "cordova-plugin-statusbar": "~2.2.0"
