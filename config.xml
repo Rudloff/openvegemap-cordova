@@ -19,9 +19,11 @@
     <exclude-files pattern="bower_components/onsenui/js/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
     <preference name="OverviewColor" value="#009688" />
+    <preference name="StatusBarBackgroundColor" value="#009688" />
     <engine name="android" spec="~6.1.2" />
     <plugin name="cordova-plugin-exclude-files" spec="~0.2.0" />
     <plugin name="cordova-plugin-geolocation" spec="~1.0.0" />
     <plugin name="cordova-plugin-overview" spec="~0.1.0" />
+    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
 </widget>
