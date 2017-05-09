@@ -1,12 +1,28 @@
 {
-  "name": "openvegemap-cordova",
-  "license": "GPL-3.0",
-  "description": "OpenVegeMap Cordova app",
-  "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
-  "dependencies": {
-    "openvegemap": "0.2.0"
-  },
-  "scripts": {
-    "postinstall": "cd www/; npm install; bower install; grunt"
-  }
+    "name": "openvegemap-cordova",
+    "license": "GPL-3.0",
+    "description": "OpenVegeMap Cordova app",
+    "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
+    "dependencies": {
+        "openvegemap": "0.2.0",
+        "cordova-android": "~6.1.2",
+        "cordova-plugin-exclude-files": "~0.2.0",
+        "cordova-plugin-geolocation": "~1.0.0",
+        "cordova-plugin-overview": "~0.1.0",
+        "cordova-plugin-whitelist": "1"
+    },
+    "scripts": {
+        "postinstall": "cd www/; npm install; bower install; grunt"
+    },
+    "cordova": {
+        "platforms": [
+            "android"
+        ],
+        "plugins": {
+            "cordova-plugin-exclude-files": {},
+            "cordova-plugin-geolocation": {},
+            "cordova-plugin-overview": {},
+            "cordova-plugin-whitelist": {}
+        }
+    }
 }
