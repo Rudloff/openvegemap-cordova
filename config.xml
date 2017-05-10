@@ -18,6 +18,7 @@
     <exclude-files pattern="bower_components/leaflet/" />
     <exclude-files pattern="bower_components/onsenui/js/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
+    <exclude-files pattern="dist/_*" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
     <engine name="android" spec="~6.1.2" />
