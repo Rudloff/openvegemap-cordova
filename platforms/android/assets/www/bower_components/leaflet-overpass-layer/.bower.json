@@ -1,0 +1,37 @@
+{
+  "name": "leaflet-overpass-layer",
+  "version": "2.7.0",
+  "homepage": "https://github.com/GuillaumeAmat/leaflet-overpass-layer",
+  "authors": [
+    "Karsten Hinz <k.hinz@tu-bs.de>",
+    "Knut Hühne <knut@k-nut.eu>",
+    "Guillaume Amat <guillaume@amat.io>"
+  ],
+  "description": "This is an simple way to bring OSM data as POI overlay on your leaflet Map",
+  "main": "dist/OverPassLayer.bundle.js",
+  "keywords": [
+    "leaflet",
+    "overpass",
+    "openstreetmap",
+    "osm",
+    "features",
+    "layer"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "leaflet": "~1.0.1"
+  },
+  "_release": "2.7.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.7.0",
+    "commit": "6e7dcaf254f1dcbccdbeb52cd62bbce10b327329"
+  },
+  "_source": "https://github.com/GuillaumeAmat/leaflet-overpass-layer.git",
+  "_target": "~2.7.0",
+  "_originalSource": "leaflet-overpass-layer"
+}

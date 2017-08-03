@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="pro.rudloff.openvegemap" version="0.3.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
+    </feature>
+    <feature name="Overview">
+        <param name="android-package" value="com.doctolib.cordova.overview.Overview" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>OpenVegeMap</name>
+    <description>
+        OpenVegeMap Cordova app
+    </description>
+    <author email="contact@rudloff.pro" href="http://cordova.io">
+        Pierre Rudloff
+    </author>
+    <content src="index.html" />
+    <icon src="www/img/logo_512.png" />
+    <access origin="https://maps.wikimedia.org" />
+    <access origin="https://overpass-api.de" />
+    <access origin="https://nominatim.openstreetmap.org" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <exclude-files pattern="node_modules/" />
+    <exclude-files pattern="bower_components/leaflet/" />
+    <exclude-files pattern="bower_components/onsenui/js/" />
+    <exclude-files pattern="bower_components/leaflet-plugins/" />
+    <exclude-files pattern="dist/_*" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="OverviewColor" value="#009688" />
+    <preference name="StatusBarBackgroundColor" value="#009688" />
+</widget>
