@@ -1,0 +1,31 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-exclude-files": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        },
+        "cordova-plugin-overview": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "pro.rudloff.openvegemap"
+        }
+    }
+}

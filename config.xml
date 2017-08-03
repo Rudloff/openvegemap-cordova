@@ -21,7 +21,7 @@
     <exclude-files pattern="dist/_*" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
-    <engine name="android" spec="^6.1.2" />
+    <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-overview" spec="^0.1.2" />

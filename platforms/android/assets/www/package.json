@@ -16,6 +16,7 @@
     "fetchSpec": "0.3.1"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/openvegemap/-/openvegemap-0.3.1.tgz",
