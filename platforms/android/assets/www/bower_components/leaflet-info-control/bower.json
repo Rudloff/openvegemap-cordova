@@ -1,0 +1,37 @@
+{
+  "name": "leaflet-info-control",
+  "version": "0.1.0",
+  "homepage": "https://github.com/Rudloff/leaflet-info-control",
+  "description": "A simple Leaflet control that displays information about the map",
+  "main": "InfoControl.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "map",
+    "leaflet",
+    "control"
+  ],
+  "authors": [
+    {
+      "name": "Pierre Rudloff",
+      "email": "contact@rudloff.pro",
+      "homepage": "https://rudloff.pro/"
+    }
+  ],
+  "license": "GPL-3.0+",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rudloff/leaflet-info-control.git"
+  }
+}

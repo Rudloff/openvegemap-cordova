@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "cordova-plugin-exclude-files@^0.2.2",
+        "scope": null,
+        "escapedName": "cordova-plugin-exclude-files",
+        "name": "cordova-plugin-exclude-files",
+        "rawSpec": "^0.2.2",
+        "spec": ">=0.2.2 <0.3.0",
+        "type": "range"
+      },
+      "/home/pierre/www/openvegemap-cordova/node_modules"
+    ]
+  ],
+  "_from": "cordova-plugin-exclude-files@>=0.2.2 <0.3.0",
+  "_id": "cordova-plugin-exclude-files@0.2.2",
+  "_inCache": true,
+  "_location": "/cordova-plugin-exclude-files",
+  "_nodeVersion": "7.10.0",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-exclude-files-0.2.2.tgz_1494715103455_0.858634889125824"
+  },
+  "_npmUser": {
+    "name": "raphinesse",
+    "email": "raphinesse@gmail.com"
+  },
+  "_npmVersion": "4.2.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "cordova-plugin-exclude-files@^0.2.2",
+    "scope": null,
+    "escapedName": "cordova-plugin-exclude-files",
+    "name": "cordova-plugin-exclude-files",
+    "rawSpec": "^0.2.2",
+    "spec": ">=0.2.2 <0.3.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-exclude-files/-/cordova-plugin-exclude-files-0.2.2.tgz",
+  "_shasum": "1ddf878aeb14b4ebce0716bf22aea5c203de9bfa",
+  "_shrinkwrap": null,
+  "_spec": "cordova-plugin-exclude-files@^0.2.2",
+  "_where": "/home/pierre/www/openvegemap-cordova/node_modules",
+  "author": {
+    "name": "Raphael von der Grün"
+  },
+  "bugs": {
+    "url": "https://github.com/raphinesse/cordova-plugin-exclude-files/issues"
+  },
+  "cordova": {
+    "id": "de.raphinesse.cordova.excludefiles",
+    "platforms": []
+  },
+  "dependencies": {
+    "del": "^2.2.2",
+    "lodash": "^4.17.4",
+    "q": "^1.4.1",
+    "xml2js": "^0.4.17"
+  },
+  "description": "A cordova plugin that allows to exclude files from the build",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "xmlpoke": "git+https://github.com/raphinesse/node-xmlpoke.git"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "1ddf878aeb14b4ebce0716bf22aea5c203de9bfa",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-exclude-files/-/cordova-plugin-exclude-files-0.2.2.tgz"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "gitHead": "98eb47fee203aac0c11a892a040116da5f448ea3",
+  "homepage": "https://github.com/raphinesse/cordova-plugin-exclude-files#readme",
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "license": "MIT",
+  "maintainers": [
+    {
+      "name": "raphinesse",
+      "email": "raphinesse@gmail.com"
+    }
+  ],
+  "name": "cordova-plugin-exclude-files",
+  "optionalDependencies": {},
+  "readme": "# cordova-plugin-exclude-files\n\nA cordova plugin that allows to exclude files from the build.\n\n\n## Installation\n\n```shell\ncordova plugin add cordova-plugin-exclude-files\n```\n\n\n## Usage\n\nConfigure which files to exclude from the build, by adding any number of `<exclude-files>` elements to your `config.xml`:\n\n```xml\n<exclude-files pattern=\"**/*.scss\" />\n\n<platform name=\"android\">\n    <exclude-files pattern=\"ios-only\" />\n</platform>\n```\n\nPatterns are [globs](https://github.com/isaacs/node-glob#glob-primer) that are resolved relative to the `www` directory.\nPlatform specific excludes are appended to the global excludes.\n\n\n## How it works\n\nFiles that match the given patterns will be removed by an `after_prepare` hook.\nThis seems to be the only safe method of doing this at the moment of writing.\n\nThis means that cordova will first copy *everything* from `www` to the platform directories and then the files matched by this plugin will be deleted from there.\nBut it also means that cordova prepare will not run any faster if you exclude huge files using this plugin.\n\n\n## Compatibility\n\nTested with `cordova@6.5.0`. Requires `node@>=4`.\n\n## License\n\n`cordova-plugin-exclude-files` is licensed under the MIT License.\n\nCopyright (c) 2017 Raphael von der Grün\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphinesse/cordova-plugin-exclude-files.git"
+  },
+  "scripts": {
+    "version": "node sync-cordova-plugin-version.js && git add plugin.xml"
+  },
+  "version": "0.2.2"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "leaflet-loader",
+  "homepage": "https://github.com/stefanocudini/leaflet-loader",
+  "version": "0.0.1",
+  "_release": "0.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.1",
+    "commit": "1fd10fd8c65da92b0ada8555339391862a2edfd1"
+  },
+  "_source": "https://github.com/stefanocudini/leaflet-loader.git",
+  "_target": "~0.0.1",
+  "_originalSource": "leaflet-loader"
+}

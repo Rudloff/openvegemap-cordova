@@ -1,0 +1,62 @@
+{
+  "_from": "openvegemap@0.3.2",
+  "_id": "openvegemap@0.3.2",
+  "_inBundle": false,
+  "_integrity": "sha512-mLNQ5tahOgnaaPDqGMzg1VI0EN8p3G3eURrADwLvec2Ck9H21nhROvA5Urt4LxhhSE4okk/Qot4XsJu7RR2Bhg==",
+  "_location": "/openvegemap",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "openvegemap@0.3.2",
+    "name": "openvegemap",
+    "escapedName": "openvegemap",
+    "rawSpec": "0.3.2",
+    "saveSpec": null,
+    "fetchSpec": "0.3.2"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/openvegemap/-/openvegemap-0.3.2.tgz",
+  "_shasum": "edc1c125bb5495ddd40238902bc81daff29870f2",
+  "_spec": "openvegemap@0.3.2",
+  "_where": "/home/pierre/www/openvegemap-cordova",
+  "author": {
+    "name": "Pierre Rudloff"
+  },
+  "bugs": {
+    "url": "https://github.com/Rudloff/openvegemap/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Find vegetarian and vegan restaurants in your city",
+  "devDependencies": {
+    "bower": "~1.8.0",
+    "grunt": "~1.0.1",
+    "grunt-bower-concat": "~1.0.0",
+    "grunt-contrib-csslint": "~2.0.0",
+    "grunt-contrib-cssmin": "~2.2.0",
+    "grunt-contrib-imagemin": "~1.0.1",
+    "grunt-contrib-uglify": "~3.0.0",
+    "grunt-contrib-watch": "~1.0.0",
+    "grunt-fixpack": "~0.1.0",
+    "grunt-jslint": "~1.1.14",
+    "grunt-jsonlint": "~1.1.0",
+    "grunt-shipit": "~1.0.0",
+    "shipit-git-update": "~0.1.0"
+  },
+  "homepage": "https://github.com/Rudloff/openvegemap",
+  "keywords": [
+    "map",
+    "openstreemap"
+  ],
+  "license": "GPL-3.0",
+  "main": "index.html",
+  "name": "openvegemap",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rudloff/openvegemap.git"
+  },
+  "version": "0.3.2"
+}

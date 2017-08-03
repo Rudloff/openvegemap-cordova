@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<title>Leaflet Control Loader</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<link rel="stylesheet" href="/maps/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="leaflet-loader.css" />
+<style>
+#map {
+	width:600px;
+	height:300px;
+	clear: both;
+}
+label {
+	float: left;
+}
+pre {
+	font-family: "Courier New";
+	font-size: .85em;
+	color: #333;
+	float: left;
+	clear: both;
+	padding: 10px;
+	margin: 10px 0;
+	background-color: #eee;
+	box-shadow: inset 2px 2px 4px #ccc;
+}
+</style>
+</head>
+
+<body>
+<h3>Leaflet Control Loader</h3>
+<p>Simple control to show a gif loader to the center of the map</p>
+<label>Example:</label>
+<pre>
+var controlLoader = L.control.loader().addTo(map);
+
+controlLoader.show();
+...
+controlLoader.hide();
+</pre>
+
+<div id="map"></div>
+
+<script src="/maps/leaflet/dist/leaflet.js"></script>
+<script src="leaflet-loader.js"></script>
+<script>
+
+	var map = new L.Map('map', {zoom: 9, center: new L.latLng([42.575330,12.102411]) });
+	map.addLayer(new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'));	//base layer
+
+	var controlLoader = L.control.loader().addTo(map).show();
+
+	setTimeout(function() {
+		controlLoader.hide();
+	},5000);
+
+</script> 
+</body>
+</html>

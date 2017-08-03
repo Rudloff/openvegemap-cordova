@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-overview" version="0.1.2">
+  <name>Overview</name>
+  <description>Customize the Android Overview Screen</description>
+  <license>MIT</license>
+  <keywords>android,overview,statusbar,color</keywords>
+  <engines>
+    <engine name="cordova" version=">=5.0.0"/>
+  </engines>
+  <platform name="android">
+    <source-file src="src/android/Overview.java" target-dir="src/com/doctolib/cordova/overview"/>
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Overview">
+        <param name="android-package" value="com.doctolib.cordova.overview.Overview"/>
+        <param name="onload" value="true" />
+      </feature>
+    </config-file>
+  </platform>
+</plugin>
