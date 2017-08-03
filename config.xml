@@ -21,10 +21,10 @@
     <exclude-files pattern="dist/_*" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
-    <engine name="android" spec="~6.1.2" />
-    <plugin name="cordova-plugin-exclude-files" spec="~0.2.0" />
-    <plugin name="cordova-plugin-geolocation" spec="~2.4.3" />
-    <plugin name="cordova-plugin-overview" spec="~0.1.0" />
-    <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
-    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <engine name="android" spec="^6.1.2" />
+    <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
+    <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
+    <plugin name="cordova-plugin-overview" spec="^0.1.2" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
 </widget>
