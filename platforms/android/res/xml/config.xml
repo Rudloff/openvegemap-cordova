@@ -15,6 +15,10 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="UniversalLinks">
+        <param name="android-package" value="com.nordnetab.cordova.ul.UniversalLinksPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>OpenVegeMap</name>
     <description>
         OpenVegeMap Cordova app
@@ -34,6 +38,10 @@
     <exclude-files pattern="bower_components/onsenui/js/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
     <exclude-files pattern="dist/_*" />
+    <universal-links>
+        <host name="openvegemap.netlib.re" scheme="https" />
+        <host name="openvegemap.netlib.re" scheme="http" />
+    </universal-links>
     <preference name="loglevel" value="DEBUG" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
