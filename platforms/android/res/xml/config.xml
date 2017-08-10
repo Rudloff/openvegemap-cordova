@@ -45,4 +45,5 @@
     <preference name="loglevel" value="DEBUG" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
+    <preference name="android-minSdkVersion" value="19" />
 </widget>

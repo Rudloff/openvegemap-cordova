@@ -25,6 +25,7 @@
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />
     </universal-links>
+    <preference name="android-minSdkVersion" value="19" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
