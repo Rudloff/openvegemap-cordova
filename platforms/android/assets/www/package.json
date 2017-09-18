@@ -1,27 +1,26 @@
 {
-  "_from": "openvegemap@0.4.1",
-  "_id": "openvegemap@0.4.1",
+  "_from": "openvegemap@0.4.2",
+  "_id": "openvegemap@0.4.2",
   "_inBundle": false,
-  "_integrity": "sha512-rPJI42HIjMXqJirJ72GoGOsbxzPkdegxId3dvwJijXLFSPjeEF3H0dMGU6FRdC7qytWNzW+UgQV/ekZtLKDdxQ==",
+  "_integrity": "sha512-r0P+FleIY8/EBxyuQCnSWafRETHAAlh7mue9KfyALUMKeC86zh5x3xVu5wbar6oaP/hrDGetKb1NORATtEkzXA==",
   "_location": "/openvegemap",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "openvegemap@0.4.1",
+    "raw": "openvegemap@0.4.2",
     "name": "openvegemap",
     "escapedName": "openvegemap",
-    "rawSpec": "0.4.1",
+    "rawSpec": "0.4.2",
     "saveSpec": null,
-    "fetchSpec": "0.4.1"
+    "fetchSpec": "0.4.2"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/openvegemap/-/openvegemap-0.4.1.tgz",
-  "_shasum": "5c5ed8e0c92bb01afa1026c6648622100ab59a2a",
-  "_spec": "openvegemap@0.4.1",
+  "_resolved": "https://registry.npmjs.org/openvegemap/-/openvegemap-0.4.2.tgz",
+  "_shasum": "80109bdc2a4d43d099b09caa566d77687b792cd3",
+  "_spec": "openvegemap@0.4.2",
   "_where": "/home/pierre/www/openvegemap-cordova",
   "author": {
     "name": "Pierre Rudloff"
@@ -59,5 +58,5 @@
     "type": "git",
     "url": "git+https://github.com/Rudloff/openvegemap.git"
   },
-  "version": "0.4.1"
+  "version": "0.4.2"
 }
