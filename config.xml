@@ -17,9 +17,15 @@
     <exclude-files pattern="node_modules/" />
     <exclude-files pattern="bower_components/leaflet/" />
     <exclude-files pattern="bower_components/onsenui/js/" />
+    <exclude-files pattern="bower_components/onsenui/css-components-src/" />
+    <exclude-files pattern="bower_components/onsenui/core-src/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
     <exclude-files pattern="bower_components/jquery/" />
+    <exclude-files pattern="bower_components/opening_hours.js/test.*" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/screenshots/" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/examples/" />
     <exclude-files pattern="dist/_*" />
+    <exclude-files pattern="dist/*.map" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
     <universal-links>
