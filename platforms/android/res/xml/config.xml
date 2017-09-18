@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="pro.rudloff.openvegemap" version="0.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="4031" id="pro.rudloff.openvegemap" version="0.4.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
@@ -13,6 +13,10 @@
     </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="UniversalLinks">
+        <param name="android-package" value="com.nordnetab.cordova.ul.UniversalLinksPlugin" />
         <param name="onload" value="true" />
     </feature>
     <name>OpenVegeMap</name>
@@ -32,9 +36,21 @@
     <exclude-files pattern="node_modules/" />
     <exclude-files pattern="bower_components/leaflet/" />
     <exclude-files pattern="bower_components/onsenui/js/" />
+    <exclude-files pattern="bower_components/onsenui/css-components-src/" />
+    <exclude-files pattern="bower_components/onsenui/core-src/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
+    <exclude-files pattern="bower_components/jquery/" />
+    <exclude-files pattern="bower_components/opening_hours.js/test.*" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/screenshots/" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/examples/" />
     <exclude-files pattern="dist/_*" />
+    <exclude-files pattern="dist/*.map" />
+    <universal-links>
+        <host name="openvegemap.netlib.re" scheme="https" />
+        <host name="openvegemap.netlib.re" scheme="http" />
+    </universal-links>
     <preference name="loglevel" value="DEBUG" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
+    <preference name="android-minSdkVersion" value="19" />
 </widget>

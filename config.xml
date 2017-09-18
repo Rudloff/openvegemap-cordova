@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="pro.rudloff.openvegemap" version="0.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="4031" id="pro.rudloff.openvegemap" version="0.4.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>OpenVegeMap</name>
     <description>
         OpenVegeMap Cordova app
@@ -17,14 +17,27 @@
     <exclude-files pattern="node_modules/" />
     <exclude-files pattern="bower_components/leaflet/" />
     <exclude-files pattern="bower_components/onsenui/js/" />
+    <exclude-files pattern="bower_components/onsenui/css-components-src/" />
+    <exclude-files pattern="bower_components/onsenui/core-src/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
+    <exclude-files pattern="bower_components/jquery/" />
+    <exclude-files pattern="bower_components/opening_hours.js/test.*" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/screenshots/" />
+    <exclude-files pattern="bower_components/Leaflet.awesome-markers/examples/" />
     <exclude-files pattern="dist/_*" />
+    <exclude-files pattern="dist/*.map" />
     <preference name="OverviewColor" value="#009688" />
     <preference name="StatusBarBackgroundColor" value="#009688" />
+    <universal-links>
+        <host name="openvegemap.netlib.re" scheme="https" />
+        <host name="openvegemap.netlib.re" scheme="http" />
+    </universal-links>
+    <preference name="android-minSdkVersion" value="19" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-overview" spec="^0.1.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.2.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
+    <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
 </widget>

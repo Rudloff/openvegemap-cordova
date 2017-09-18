@@ -1,14 +1,14 @@
 {
   "name": "leaflet-control-geocoder",
-  "version": "1.5.1",
+  "version": "1.5.5",
   "homepage": "https://github.com/perliedman/leaflet-control-geocoder",
   "authors": [
     "Per Liedman <per@liedman.net>"
   ],
   "description": "Extendable geocoder with builtin OSM/Nominatim support",
   "main": [
-    "Control.Geocoder.js",
-    "Control.Geocoder.css",
+    "dist/Control.Geocoder.js",
+    "dist/Control.Geocoder.css",
     "images/geocoder.png",
     "images/throbber.gif"
   ],
@@ -37,8 +37,5 @@
     "bower_components",
     "test",
     "tests"
-  ],
-  "dependencies": {
-    "leaflet": "~0.7.2"
-  }
+  ]
 }

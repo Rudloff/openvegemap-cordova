@@ -15,6 +15,7 @@
         padding: 0;
         position: static;
         background-color: white;
+        overflow: visible;
       }
 
       h1#title {
@@ -246,10 +247,12 @@
           <div style="width: 100%;">
             <div class="range">
   <input type="range" class="range__input">
+  <input type="range" class="range__focus-ring">
 </div>
 
 <div class="range range--disabled">
   <input type="range" class="range__input" disabled>
+  <input type="range" class="range__focus-ring" disabled>
 </div>
 
           </div>
@@ -257,10 +260,12 @@
 
         <pre class="component-preview__markup">&lt;div class=&quot;range&quot;&gt;
   &lt;input type=&quot;range&quot; class=&quot;range__input&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__focus-ring&quot;&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;range range--disabled&quot;&gt;
   &lt;input type=&quot;range&quot; class=&quot;range__input&quot; disabled&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__focus-ring&quot; disabled&gt;
 &lt;/div&gt;
 </pre>
       </div>
@@ -274,22 +279,26 @@
         <div class="page component-preview__example">
           <div style="width: 100%;">
             <div class="range range--material">
-  <input type="range" class="range__input range--material__input">
+  <input type="range" class="range__input range--material__input" min="0" max="100">
+  <!-- <input type="range" class="range__focus-ring range--material__focus-ring"> -->
 </div>
 
 <div class="range range--material range--disabled">
   <input type="range" class="range__input range--material__input" disabled>
+  <!-- <input type="range" class="range__focus-ring range--material__focus-ring" disabled> -->
 </div>
 
           </div>
         </div>
 
         <pre class="component-preview__markup">&lt;div class=&quot;range range--material&quot;&gt;
-  &lt;input type=&quot;range&quot; class=&quot;range__input range--material__input&quot;&gt;
+  &lt;input type=&quot;range&quot; class=&quot;range__input range--material__input&quot; min=&quot;0&quot; max=&quot;100&quot;&gt;
+  &lt;!-- &lt;input type=&quot;range&quot; class=&quot;range__focus-ring range--material__focus-ring&quot;&gt; --&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;range range--material range--disabled&quot;&gt;
   &lt;input type=&quot;range&quot; class=&quot;range__input range--material__input&quot; disabled&gt;
+  &lt;!-- &lt;input type=&quot;range&quot; class=&quot;range__focus-ring range--material__focus-ring&quot; disabled&gt; --&gt;
 &lt;/div&gt;
 </pre>
       </div>
@@ -3035,25 +3044,6 @@
       
       <div class="component-preview">
         <button class="component-preview__toggle">HTML</button>
-        <h2 class="component-preview__title" id="transparent_text_input">
-          <a href="#transparent_text_input" class="component-preview__link">Transparent Text Input</a>
-        </h2>
-
-        <div class="page component-preview__example">
-          <div style="width: 100%;">
-            <div><input type="text" class="text-input text-input--transparent" placeholder="text" value=""></div>
-<div><input type="text" class="text-input text-input--transparent" placeholder="text" value="" disabled></div>
-
-          </div>
-        </div>
-
-        <pre class="component-preview__markup">&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input text-input--transparent&quot; placeholder=&quot;text&quot; value=&quot;&quot;&gt;&lt;/div&gt;
-&lt;div&gt;&lt;input type=&quot;text&quot; class=&quot;text-input text-input--transparent&quot; placeholder=&quot;text&quot; value=&quot;&quot; disabled&gt;&lt;/div&gt;
-</pre>
-      </div>
-      
-      <div class="component-preview">
-        <button class="component-preview__toggle">HTML</button>
         <h2 class="component-preview__title" id="textarea">
           <a href="#textarea" class="component-preview__link">Textarea</a>
         </h2>
@@ -3077,12 +3067,12 @@
 
         <div class="page component-preview__example">
           <div style="width: 100%;">
-            <textarea class="textarea--transparent" rows="3" placeholder="Textarea"></textarea>
+            <textarea class="textarea textarea--transparent" rows="3" placeholder="Textarea"></textarea>
 
           </div>
         </div>
 
-        <pre class="component-preview__markup">&lt;textarea class=&quot;textarea--transparent&quot; rows=&quot;3&quot; placeholder=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
+        <pre class="component-preview__markup">&lt;textarea class=&quot;textarea textarea--transparent&quot; rows=&quot;3&quot; placeholder=&quot;Textarea&quot;&gt;&lt;/textarea&gt;
 </pre>
       </div>
       
@@ -3543,6 +3533,43 @@
       
       <div class="component-preview">
         <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_progress_bar">
+          <a href="#material_progress_bar" class="component-preview__link">Material Progress Bar</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <div class="progress-bar progress-bar--material">
+  <div class="progress-bar__primary progress-bar--material__primary" style="width: 30%"></div>
+</div>
+<br />
+<div class="progress-bar progress-bar--material">
+  <div class="progress-bar__primary progress-bar--material__primary" style="width:20%"></div>
+  <div class="progress-bar__secondary progress-bar--material__secondary" style="width:76%"></div>
+</div>
+<br />
+<div class="progress-bar progress-bar--material progress-bar--indeterminate">
+</div>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;div class=&quot;progress-bar progress-bar--material&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary progress-bar--material__primary&quot; style=&quot;width: 30%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar progress-bar--material&quot;&gt;
+  &lt;div class=&quot;progress-bar__primary progress-bar--material__primary&quot; style=&quot;width:20%&quot;&gt;&lt;/div&gt;
+  &lt;div class=&quot;progress-bar__secondary progress-bar--material__secondary&quot; style=&quot;width:76%&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class=&quot;progress-bar progress-bar--material progress-bar--indeterminate&quot;&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
         <h2 class="component-preview__title" id="progress_circle">
           <a href="#progress_circle" class="component-preview__link">Progress Circle</a>
         </h2>
@@ -3550,16 +3577,19 @@
         <div class="page component-preview__example">
           <div style="width: 100%;">
             <svg class="progress-circular progress-circular--indeterminate">
+  <circle class="progress-circular__background"/>
   <circle class="progress-circular__primary progress-circular--indeterminate__primary"/>
   <circle class="progress-circular__secondary progress-circular--indeterminate__secondary"/>
 </svg>
 
 <svg class="progress-circular">
+  <circle class="progress-circular__background"/>
   <circle class="progress-circular__secondary" style="stroke-dasharray: 140%, 251.32%"/>
   <circle class="progress-circular__primary" style="stroke-dasharray: 100%, 251.32%"/>
 </svg>
 
 <svg class="progress-circular">
+  <circle class="progress-circular__background"/>
   <circle class="progress-circular__primary" style="stroke-dasharray: 80%, 251.32%"/>
 </svg>
 
@@ -3567,17 +3597,67 @@
         </div>
 
         <pre class="component-preview__markup">&lt;svg class=&quot;progress-circular progress-circular--indeterminate&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
   &lt;circle class=&quot;progress-circular__primary progress-circular--indeterminate__primary&quot;/&gt;
   &lt;circle class=&quot;progress-circular__secondary progress-circular--indeterminate__secondary&quot;/&gt;
 &lt;/svg&gt;
 
 &lt;svg class=&quot;progress-circular&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
   &lt;circle class=&quot;progress-circular__secondary&quot; style=&quot;stroke-dasharray: 140%, 251.32%&quot;/&gt;
   &lt;circle class=&quot;progress-circular__primary&quot; style=&quot;stroke-dasharray: 100%, 251.32%&quot;/&gt;
 &lt;/svg&gt;
 
 &lt;svg class=&quot;progress-circular&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background&quot;/&gt;
   &lt;circle class=&quot;progress-circular__primary&quot; style=&quot;stroke-dasharray: 80%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_progress_circle">
+          <a href="#material_progress_circle" class="component-preview__link">Material Progress Circle</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <svg class="progress-circular progress-circular--material progress-circular--indeterminate">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__primary progress-circular--material__primary progress-circular--indeterminate__primary"/>
+  <circle class="progress-circular__secondary progress-circular--material__secondary progress-circular--indeterminate__secondary"/>
+</svg>
+
+<svg class="progress-circular progress-circular--material">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__secondary progress-circular--material__secondary" style="stroke-dasharray: 140%, 251.32%"/>
+  <circle class="progress-circular__primary progress-circular--material__primary" style="stroke-dasharray: 100%, 251.32%"/>
+</svg>
+
+<svg class="progress-circular progress-circular--material">
+  <circle class="progress-circular__background progress-circular--material__background"/>
+  <circle class="progress-circular__primary progress-circular--material__primary" style="stroke-dasharray: 80%, 251.32%"/>
+</svg>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;svg class=&quot;progress-circular progress-circular--material progress-circular--indeterminate&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary progress-circular--indeterminate__primary&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary progress-circular--material__secondary progress-circular--indeterminate__secondary&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular progress-circular--material&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__secondary progress-circular--material__secondary&quot; style=&quot;stroke-dasharray: 140%, 251.32%&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary&quot; style=&quot;stroke-dasharray: 100%, 251.32%&quot;/&gt;
+&lt;/svg&gt;
+
+&lt;svg class=&quot;progress-circular progress-circular--material&quot;&gt;
+  &lt;circle class=&quot;progress-circular__background progress-circular--material__background&quot;/&gt;
+  &lt;circle class=&quot;progress-circular__primary progress-circular--material__primary&quot; style=&quot;stroke-dasharray: 80%, 251.32%&quot;/&gt;
 &lt;/svg&gt;
 </pre>
       </div>
@@ -3603,6 +3683,25 @@
       
       <div class="component-preview">
         <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_fab">
+          <a href="#material_fab" class="component-preview__link">Material Fab</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab fab--material"><i class="zmdi zmdi-car"></i></button>
+<button class="fab fab--material" disabled><i class="zmdi zmdi-car"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab fab--material&quot;&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab fab--material&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-car&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
         <h2 class="component-preview__title" id="fab_mini">
           <a href="#fab_mini" class="component-preview__link">Fab Mini</a>
         </h2>
@@ -3617,6 +3716,25 @@
 
         <pre class="component-preview__markup">&lt;button class=&quot;fab fab--mini&quot;&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
 &lt;button class=&quot;fab fab--mini&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+</pre>
+      </div>
+      
+      <div class="component-preview">
+        <button class="component-preview__toggle">HTML</button>
+        <h2 class="component-preview__title" id="material_fab_mini">
+          <a href="#material_fab_mini" class="component-preview__link">Material Fab Mini</a>
+        </h2>
+
+        <div class="page component-preview__example">
+          <div style="width: 100%;">
+            <button class="fab fab--material fab--mini"><i class="zmdi zmdi-plus"></i></button>
+<button class="fab fab--material fab--mini" disabled><i class="zmdi zmdi-plus"></i></button>
+
+          </div>
+        </div>
+
+        <pre class="component-preview__markup">&lt;button class=&quot;fab fab--material fab--mini&quot;&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+&lt;button class=&quot;fab fab--material fab--mini&quot; disabled&gt;&lt;i class=&quot;zmdi zmdi-plus&quot;&gt;&lt;/i&gt;&lt;/button&gt;
 </pre>
       </div>
       
