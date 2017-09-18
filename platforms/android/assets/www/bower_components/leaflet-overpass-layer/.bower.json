@@ -1,6 +1,6 @@
 {
   "name": "leaflet-overpass-layer",
-  "version": "2.7.0",
+  "version": "2.8.0",
   "homepage": "https://github.com/GuillaumeAmat/leaflet-overpass-layer",
   "authors": [
     "Karsten Hinz <k.hinz@tu-bs.de>",
@@ -23,15 +23,15 @@
     "node_modules"
   ],
   "dependencies": {
-    "leaflet": "~1.0.1"
+    "leaflet": "~1.2.0"
   },
-  "_release": "2.7.0",
+  "_release": "2.8.0",
   "_resolution": {
     "type": "version",
-    "tag": "2.7.0",
-    "commit": "6e7dcaf254f1dcbccdbeb52cd62bbce10b327329"
+    "tag": "2.8.0",
+    "commit": "d8d8588518aab8d04186bb64bf02a9d919e171fd"
   },
   "_source": "https://github.com/GuillaumeAmat/leaflet-overpass-layer.git",
-  "_target": "~2.7.0",
+  "_target": "~2.8.0",
   "_originalSource": "leaflet-overpass-layer"
 }

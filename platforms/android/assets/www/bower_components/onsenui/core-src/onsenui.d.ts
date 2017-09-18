@@ -66,10 +66,24 @@ declare namespace ons {
   function disableAutoStyling(): void;
   function enableAutoStyling(): void;
   /**
-   * @description Refresh styling for the given platform.
+   * @description Refresh styling for the given platform. Only useful for demos. Use `ons.platform.select(...)` for development and production.
    */
   function forcePlatformStyling(platform: string): void;
-  function createElement(...args: any[]): any;
+  /**
+   * @description Access the last created page from the current `script` scope. Only works inside `<script></script>` tags that are direct children of `ons-page` element. Use this to add lifecycle hooks to a page.
+   * @return Returns the corresponding page element.
+   */
+  function getScriptPage(): HTMLElement | null;
+  /**
+   * @description Separated files need to be requested on demand and this can slightly delay pushing new pages. This method requests and caches templates for later use.
+   * @return Promise that resolves when all the templates are cached.
+   */
+  function preload(...args: any[]): Promise<DocumentFragment[]>;
+  /**
+   * @description Create a new element from a template. Both inline HTML and external files are supported although the return value differs.
+   * @return If the provided template was an inline HTML string, it returns the new element. Otherwise, it returns a promise that resolves to the new element.
+   */
+  function createElement(...args: any[]): HTMLElement | Promise<HTMLElement>;
   /**
    * @description Create a popover instance from a template.
    * @return Promise object that resolves to the popover component object.
@@ -85,7 +99,11 @@ declare namespace ons {
    * @return Promise object that resolves to the alert dialog component object.
    */
   function createAlertDialog(page: string, options?: OnsOptions): Promise<HTMLElement>;
-  function openActionSheet(...args: any[]): any;
+  /**
+   * @description Shows an instant Action Sheet and lets the user choose an action.
+   * @return Will resolve when the action sheet is closed. The resolve value is either the index of the tapped button or -1 when canceled.
+   */
+  function openActionSheet(...args: any[]): Promise<number>;
   /**
    * @description If no page is defined for the `ons-loading-placeholder` attribute it will wait for this method being called before loading the page.
    */
@@ -266,6 +284,37 @@ declare namespace ons {
      *
      */
     function isEdge(): boolean;
+  }
+  /**
+   * @description Utility methods for modifier attributes
+   */
+  namespace modifier {
+    /**
+     * @description Add the specified modifiers to the element if they are not already included.
+     * @param {HTMLElemenet} element Target element.
+     * @param {String} modifier Name of the modifier.
+     */
+    function add(element: HTMLElement, ...modifier: string[]): void;
+    /**
+     * @description Remove the specified modifiers from the element if they are included.
+     * @param {HTMLElemenet} element Target element.
+     * @param {String} modifier Name of the modifier.
+     */
+    function remove(element: HTMLElement, ...modifier: string[]): void;
+    /**
+     * @description Check whether the specified modifier is included in the element.
+     * @param {HTMLElemenet} element Target element.
+     * @param {String} modifier Name of the modifier.
+     * @return {Boolean} 'true' when the specified modifier is found in the element's 'modifier' attribute. 'false' otherwise.
+     */
+    function contains(element: HTMLElement, modifier: string): boolean;
+    /**
+     * @description Toggle the specified modifier.
+     * @param {HTMLElemenet} element Target element.
+     * @param {String} modifier Name of the modifier.
+     * @param {Boolean} force If it evaluates to true, add specified modifier value, and if it evaluates to false, remove it.
+     */
+    function toggle(element: HTMLElement, modifier: string, force?: boolean): void;
   }
 
   /**
@@ -751,6 +800,13 @@ declare namespace ons {
     disabled: boolean;
   }
 
+  interface OnsAlertDialogButtonElement extends HTMLElement {
+    /**
+     * @description A boolean value that specifies if the button is disabled or not.
+     */
+    disabled: boolean;
+  }
+
   interface OnsFabElement extends HTMLElement {
     /**
      * @description Show the floating action button.
@@ -785,6 +841,47 @@ declare namespace ons {
     checked: boolean;
     /**
      * @description A boolean value that specifies whether the input is disabled or not.
+     */
+    disabled: boolean;
+  }
+
+  interface OnsSearchInputElement extends HTMLElement {
+    /**
+     * @description The current value of the search input.
+     */
+    value: string;
+    /**
+     * @description A boolean value that specifies whether the search input is disabled or not.
+     */
+    disabled: boolean;
+  }
+
+  interface OnsCheckboxElement extends HTMLElement {
+    /**
+     * @description The value of the checkbox.
+     */
+    value: string;
+    /**
+     * @description This boolean specifies whether the checkbox is checked or not.
+     */
+    checked: boolean;
+    /**
+     * @description A boolean value that specifies whether the checkbox is disabled or not.
+     */
+    disabled: boolean;
+  }
+
+  interface OnsRadioElement extends HTMLElement {
+    /**
+     * @description The value of the radio button.
+     */
+    value: string;
+    /**
+     * @description This boolean specifies whether the radio button is selected or not.
+     */
+    checked: boolean;
+    /**
+     * @description A boolean value that specifies whether the radio button is disabled or not.
      */
     disabled: boolean;
   }

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="pro.rudloff.openvegemap" version="0.3.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="pro.rudloff.openvegemap" version="0.4.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
@@ -37,6 +37,7 @@
     <exclude-files pattern="bower_components/leaflet/" />
     <exclude-files pattern="bower_components/onsenui/js/" />
     <exclude-files pattern="bower_components/leaflet-plugins/" />
+    <exclude-files pattern="bower_components/jquery/" />
     <exclude-files pattern="dist/_*" />
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />

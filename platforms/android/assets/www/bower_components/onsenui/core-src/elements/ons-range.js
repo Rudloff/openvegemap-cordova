@@ -11,33 +11,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import autoStyle from '../ons/autostyle';
-import ModifierUtil from '../ons/internal/modifier-util';
-import BaseElement from './base/base-element';
-import util from '../ons/util';
-import contentReady from '../ons/content-ready';
-
-const defaultClassName = 'range';
+import BaseInputElement from './base/base-input';
 
 const scheme = {
   '': 'range--*',
-  '.range__input': 'range--*__input'
+  '.range__input': 'range--*__input',
+  '.range__focus-ring': 'range--*__focus-ring'
 };
 
-const INPUT_ATTRIBUTES = [
-  'autofocus',
-  'disabled',
-  'inputmode',
-  'max',
-  'min',
-  'name',
-  'placeholder',
-  'readonly',
-  'size',
-  'step',
-  'validator',
-  'value'
-];
+const activeClassToken = 'range__input--active';
 
 /**
  * @element ons-range
@@ -63,49 +45,100 @@ const INPUT_ATTRIBUTES = [
  * <ons-range modifier="material" value="10"></range>
  */
 
-/**
- * @attribute disabled
- * @description
- *   [en]Whether the element is disabled or not.[/en]
- *   [ja]無効化されている場合に`true`。[/ja]
- */
-
-export default class RangeElement extends BaseElement {
+export default class RangeElement extends BaseInputElement {
 
   constructor() {
     super();
 
-    contentReady(this, () => {
-      this._compile();
-      this._updateBoundAttributes();
-      this._onChange();
-    });
+    this._boundOnMouseDown = this._onMouseDown.bind(this);
+    this._boundOnMouseUp = this._onMouseUp.bind(this);
+    this._boundOnTouchStart = this._onTouchStart.bind(this);
+    this._boundOnTouchEnd = this._onTouchEnd.bind(this);
+    this._boundOnInput = this._update.bind(this);
+    this._boundOnDragstart = this._onDragstart.bind(this);
+    this._boundOnDragend = this._onDragend.bind(this);
   }
 
   _compile() {
-    this.classList.add(defaultClassName);
-
-    autoStyle.prepare(this);
-
-    if (!util.findChild(this, '.range__input')) {
-      const input = document.createElement('input');
-      input.setAttribute('type', 'range');
-      input.classList.add('range__input');
-      this.appendChild(input);
-    }
-
-    ModifierUtil.initModifier(this, scheme);
-
-    this._updateDisabled();
+    super._compile();
+    this._updateDisabled(this.hasAttribute('disabled'));
   }
 
-  _onChange() {
-    this._input.style.backgroundSize = (100 * this._ratio) + '% 2px';
+  /* Inherited props */
+
+  _update() {
+    const input = this._input;
+    const focusRing = this._focusRing;
+
+    input.style.backgroundSize = `${100 * this._ratio}% 2px`;
+    focusRing.value = this.value;
+
+    // NOTE: "_zero" attribute is used for CSS styling.
+    if ((input.min === '' && input.value === '0') || input.min === input.value) {
+      input.setAttribute('_zero', '');
+    } else {
+      input.removeAttribute('_zero');
+    }
+
+    ['min', 'max'].forEach(attr => focusRing[attr] = input[attr]);
+  }
+
+  get _scheme() {
+    return scheme;
+  }
+
+  get _template() {
+    return `
+      <input type="${this.type}" class="${this._defaultElementClass}__input">
+      <input type="range" class="range__focus-ring" tabIndex="-1">
+    `;
+  }
+
+  get _defaultElementClass() {
+    return 'range';
+  }
+
+  get type() {
+    return 'range';
+  }
+
+  /* Own props */
+
+  _onMouseDown(e) {
+    this._input.classList.add(activeClassToken);
+    setImmediate(() => this._input.focus());
+  }
+
+  _onTouchStart(e) {
+    this._onMouseDown();
+  }
+
+  _onMouseUp(e) {
+    this._input.classList.remove(activeClassToken);
+  }
+
+  _onTouchEnd(e) {
+    this._onMouseUp(e);
   }
 
   _onDragstart(e) {
-    e.stopPropagation();
+    e.consumed = true;
     e.gesture.stopPropagation();
+    this._input.classList.add(activeClassToken);
+    this.addEventListener('drag', this._onDrag);
+  }
+
+  _onDrag(e) {
+    e.stopPropagation();
+  }
+
+  _onDragend(e) {
+    this._input.classList.remove(activeClassToken);
+    this.removeEventListener('drag', this._onDrag);
+  }
+
+  get _focusRing() {
+    return this.children[1];
   }
 
   get _ratio() {
@@ -117,63 +150,53 @@ export default class RangeElement extends BaseElement {
   }
 
   static get observedAttributes() {
-    return ['class', 'modifier', ...INPUT_ATTRIBUTES];
-  }
-
-  _updateDisabled() {
-    if (this.hasAttribute('disabled')) {
-      ModifierUtil.addModifier(this, 'disabled');
-    } else {
-      ModifierUtil.removeModifier(this, 'disabled');
-    }
+    return ['disabled', ...BaseInputElement.observedAttributes];
   }
 
   attributeChangedCallback(name, last, current) {
-    if (name === 'modifier') {
-      ModifierUtil.onModifierChanged(last, current, this, scheme);
-    } else if (name === 'class') {
-      if (!this.classList.contains(defaultClassName)) {
-        this.className = defaultClassName + ' ' + current;
-      }
-    } else if (name === 'disabled') {
-      this._updateDisabled();
+    if (name === 'disabled') {
+      this._updateDisabled(current);
     }
+    super.attributeChangedCallback(name, last, current);
+  }
 
-    if (INPUT_ATTRIBUTES.indexOf(name) >= 0) {
-      contentReady(this, () => {
-        this._updateBoundAttributes();
-
-        if (name === 'min' || name === 'max') {
-          this._onChange();
-        }
-      });
+  /**
+   * @param {boolean} disabled
+   */
+  _updateDisabled(disabled) {
+    if (disabled) {
+      this.classList.add('range--disabled');
+    } else {
+      this.classList.remove('range--disabled');
     }
   }
 
   connectedCallback() {
-    this.addEventListener('dragstart', this._onDragstart);
-    this.addEventListener('input', this._onChange);
+    this.addEventListener('mousedown', this._boundOnMouseDown);
+    this.addEventListener('mouseup', this._boundOnMouseUp);
+    this.addEventListener('touchstart', this._boundOnTouchStart);
+    this.addEventListener('touchend', this._boundOnTouchEnd);
+    this.addEventListener('dragstart', this._boundOnDragstart);
+    this.addEventListener('dragend', this._boundOnDragend);
+    this.addEventListener('input', this._boundOnInput);
   }
 
   disconnectedCallback() {
-    this.removeEventListener('dragstart', this._onDragstart);
-    this.removeEventListener('input', this._onChange);
+    this.removeEventListener('mousedown', this._boundOnMouseDown);
+    this.removeEventListener('mouseup', this._boundOnMouseUp);
+    this.removeEventListener('touchstart', this._boundOnTouchStart);
+    this.removeEventListener('touchend', this._boundOnTouchEnd);
+    this.removeEventListener('dragstart', this._boundOnDragstart);
+    this.removeEventListener('dragend', this._boundOnDragend);
+    this.removeEventListener('input', this._boundOnInput);
   }
 
-  _updateBoundAttributes() {
-    INPUT_ATTRIBUTES.forEach((attr) => {
-      if (this.hasAttribute(attr)) {
-        this._input.setAttribute(attr, this.getAttribute(attr));
-      }
-      else {
-        this._input.removeAttribute(attr);
-      }
-    });
-  }
-
-  get _input() {
-    return this.querySelector('input.range__input');
-  }
+  /**
+   * @attribute disabled
+   * @description
+   *   [en]Whether the element is disabled or not.[/en]
+   *   [ja]無効化されている場合に`true`。[/ja]
+   */
 
   /**
    * @property disabled
@@ -182,13 +205,6 @@ export default class RangeElement extends BaseElement {
    *   [en]Whether the element is disabled or not.[/en]
    *   [ja]無効化されている場合に`true`。[/ja]
    */
-  set disabled(value) {
-    return util.toggleAttribute(this, 'disabled', value);
-  }
-
-  get disabled() {
-    return this.hasAttribute('disabled');
-  }
 
   /**
    * @property value
@@ -197,22 +213,6 @@ export default class RangeElement extends BaseElement {
    *   [en]Current value.[/en]
    *   [ja][/ja]
    */
-  get value() {
-    return this._input === null
-      ? this.getAttribute('value')
-      : this._input.value;
-  }
-
-  set value(val) {
-    contentReady(this, () => {
-      this._input.value = val;
-      this._onChange();
-    });
-  }
-
-  static get events() {
-    return ['input', 'change'];
-  }
 }
 
 customElements.define('ons-range', RangeElement);

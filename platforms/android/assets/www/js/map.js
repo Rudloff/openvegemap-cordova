@@ -1,5 +1,27 @@
-/*jslint browser: true, nomen: true*/
-/*global L, InfoControl, ons*/
+/*jslint browser: true, this: true*/
+/*global L, InfoControl, ons, window*/
+/*property
+    AwesomeMarkers, Control, DomEvent, DomUtil, Geocoder, Nominatim,
+    OverPassLayer, Permalink, UrlUtil, _alts, _container, _errorElement,
+    _geocode, _input, addControl, addTo, advance, afterRequest, amenity,
+    attribution, beforeRequest, bindTooltip, center, checked, circle, close,
+    content, control, craft, create, createAlertDialog, cuisine,
+    defaultMarkGeocode, detectRetina, dialog, direction, elements,
+    enableHighAccuracy, endPoint, endsWith, feature, filtersDialog, fitBounds,
+    forEach, geocode, geocodeDialog, geocoder, get, getAttribute, getBounds,
+    getDate, getDay, getElementsByName, getHours, getItem, getIterator,
+    getMinutes, getMonth, getState, getStateString, getZoom, hash, hide,
+    hostname, href, icon, id, indexOf, init, innerHTML, lat, layerGroup,
+    loader, localStorage, locate, lon, map, marker, markerColor, maxBounds,
+    maxBoundsViscosity, maxNativeZoom, maxZoom, minZoom,
+    minZoomIndicatorEnabled, name, on, onSuccess, open, opening_hours, other,
+    padStart, phone, position, prefix, push, query, queryParse, ready,
+    removeFrom, replace, serviceUrl, setAttribute, setDate, setHours, setIcon,
+    setItem, setMinutes, setView, shop, show, some, tags, takeaway, target,
+    then, tileLayer, toString, type, useLocalStorage, useLocation, vegan,
+    vegetarian, website, zoom, zoomToast,
+    toLocaleDateString, weekday, getTime, stringify, parse
+*/
 var openvegemap = (function () {
     'use strict';
 
@@ -7,13 +29,14 @@ var openvegemap = (function () {
         controlLoader,
         curFeatures = [],
         menu,
-        locate,
         geocoder,
         layers = {},
         layerNames = ['vegan-only', 'vegan', 'vegetarian-only', 'vegetarian', 'other'],
         dialogs = {},
         dialogFunctions = {},
-        zoomWarningDisplayed = false;
+        zoomWarningDisplayed = false,
+        dayInterval = 24 * 60 * 60 * 1000,
+        weekInterval = dayInterval * 7;
 
     function isDiet(diet, tags) {
         var key = 'diet:' + diet;
@@ -46,24 +69,125 @@ var openvegemap = (function () {
         return '';
     }
 
-    function showPopup(e) {
-        var popup = '',
-            url = L.DomUtil.create('a');
-        popup += getPropertyRow('Vegan', e.target.feature.tags['diet:vegan']);
-        popup += getPropertyRow('Vegetarian', e.target.feature.tags['diet:vegetarian']);
-        if (e.target.feature.tags.cuisine) {
-            popup += getPropertyRow('Cuisine', e.target.feature.tags.cuisine.replace(/;/g, ', '));
-        }
-        popup += getPropertyRow('Take away', e.target.feature.tags.takeaway);
-        if (e.target.feature.tags.phone) {
-            popup += getPropertyRow('Phone number', '<a href="tel:' + e.target.feature.tags.phone + '">' + e.target.feature.tags.phone.replace(/\s/g, '&nbsp;') + '</a>');
-        }
-        if (e.target.feature.tags.website) {
-            url.href = e.target.feature.tags.website;
-            if (url.hostname === 'localhost') {
-                e.target.feature.tags.website = 'http://' + e.target.feature.tags.website;
+    function getOpeningHoursBtn(value) {
+        var oh = new window.opening_hours(value, null);
+        return '<ons-list-item id="hoursBtn" tappable modifier="chevron"><div class="left">Opening hours<br/>(' + oh.getStateString(new Date(), true) + ')</div></ons-list-item>';
+    }
+
+    function formatHour(date) {
+        return date.getHours().toString().padStart(2, 0) + ':' + date.getMinutes().toString().padStart(2, 0);
+    }
+
+    function formatDay(date) {
+        return date.toLocaleDateString('en-US', {weekday: 'long'});
+    }
+
+    function getClosedDates(curDate, prevDate) {
+        var result = '';
+        if (curDate - prevDate > dayInterval) {
+            // If we advanced more than a day, it means we have to display one or more closed days
+            var closedDate = prevDate;
+            while (closedDate.getDay() < curDate.getDay()) {
+                if (closedDate.getDay() === 1 || closedDate.getDay() > prevDate.getDay()) {
+                    result += '<tr><th>' + formatDay(closedDate) + '</th><td colspan="2">Closed</td></tr>';
+                }
+                closedDate = new Date(closedDate.getTime() + dayInterval);
             }
-            popup += getPropertyRow('Website', '<a target="_blank" href="' + e.target.feature.tags.website + '">' + e.target.feature.tags.website + '</a>');
+        }
+        return result;
+    }
+
+    function getOpeningHoursRow(oh, curDate, prevDate, curDay, prevOpenDay) {
+        var row = '';
+        if (oh.getState(prevDate)) {
+            row += '<tr><th>';
+            if (prevOpenDay !== curDay) {
+                row += formatDay(prevDate);
+            }
+            row += '</th><td>' + formatHour(prevDate) + '<td>' + formatHour(curDate) + '</td></tr>';
+        }
+        return row;
+    }
+
+    function getOpeningHoursTable(value) {
+        var oh = new window.opening_hours(value, null),
+            it = oh.getIterator(),
+            table = '',
+            // We use a fake date to start a monday
+            curDate = new Date(2017, 0, 2),
+            prevDate = curDate,
+            curDay,
+            prevOpenDay = new Date(2017, 0, 1),
+            endDate;
+        it.setDate(curDate);
+        endDate = new Date(curDate.getTime() + weekInterval);
+
+        while (it.advance(endDate)) {
+            curDate = it.getDate();
+            curDay = prevDate.getDay();
+
+            table += getOpeningHoursRow(oh, curDate, prevDate, curDay, prevOpenDay);
+            table += getClosedDates(curDate, prevDate);
+
+            if (oh.getState(prevDate) && prevOpenDay !== curDay) {
+                prevOpenDay = curDay;
+            }
+
+            prevDate = curDate;
+        }
+        if (curDate.getDay() === 0) {
+            //If the loop stopped on sunday, we might need to add another row
+            it.advance();
+            curDay = prevDate.getDay();
+            table += getOpeningHoursRow(oh, curDate, prevDate, curDay, prevOpenDay);
+        } else {
+            //If the loop stop before sunday, it means it is closed
+            table += '<tr><th>Sunday</th><td colspan="2">Closed<td></tr>';
+        }
+        if (!table) {
+            //Sometimes the opening hours data is in a format we don't support
+            table += "<tr><th>Sorry, we don't have enough info</th></tr>";
+        }
+        return table;
+    }
+
+    function openDialog() {
+        dialogs[this.dialog].show(this.target);
+        if (dialogFunctions[this.dialog] && typeof dialogFunctions[this.dialog].show === 'function') {
+            dialogFunctions[this.dialog].show();
+        }
+    }
+
+    function getPopupRows(tags) {
+        var rows = '',
+            url = L.DomUtil.create('a');
+        rows += getPropertyRow('Vegan', tags['diet:vegan']);
+        rows += getPropertyRow('Vegetarian', tags['diet:vegetarian']);
+        if (tags.cuisine) {
+            rows += getPropertyRow('Cuisine', tags.cuisine.replace(/;/g, ', '));
+        }
+        rows += getPropertyRow('Take away', tags.takeaway);
+        if (tags.phone) {
+            rows += getPropertyRow('Phone number', '<a href="tel:' + tags.phone + '">' + tags.phone.replace(/\s/g, '&nbsp;') + '</a>');
+        }
+        if (tags.website) {
+            url.href = tags.website;
+            if (url.hostname === 'localhost') {
+                tags.website = 'http://' + tags.website;
+            }
+            rows += getPropertyRow('Website', '<a target="_blank" href="' + tags.website + '">' + tags.website + '</a>');
+        }
+        if (tags.opening_hours) {
+            rows += getOpeningHoursBtn(tags.opening_hours);
+        }
+        return rows;
+    }
+
+    function showPopup(e) {
+        var popup = '';
+        popup += getPopupRows(e.target.feature.tags);
+        if (e.target.feature.tags.opening_hours) {
+            L.DomUtil.get('hoursTable').innerHTML = getOpeningHoursTable(e.target.feature.tags.opening_hours);
         }
         if (!e.target.feature.tags.name) {
             e.target.feature.tags.name = '';
@@ -72,25 +196,32 @@ var openvegemap = (function () {
         L.DomUtil.get('mapPopupList').innerHTML = popup;
         L.DomUtil.get('gmapsLink').setAttribute('href', 'https://www.google.fr/maps/dir//' + e.target.feature.lat + ',' + e.target.feature.lon);
         L.DomUtil.get('editLink').setAttribute('href', 'https://editor.openvegemap.netlib.re/' + e.target.feature.type + '/' + e.target.feature.id);
+        if (e.target.feature.tags.opening_hours) {
+            var hoursBtn = L.DomUtil.get('hoursBtn');
+            L.DomEvent.on(hoursBtn, 'click', openDialog, {dialog: 'hoursPopup', target: hoursBtn});
+        }
         L.DomUtil.get('mapPopup').show();
     }
 
-    function getIcon(tags) {
+    function getShopIcon(tags) {
         switch (tags.shop) {
         case 'bakery':
             return '🥖';
         default:
-            break;
-        }
-        if (tags.shop) {
             return '🛒';
         }
+    }
+
+    function getCraftIcon(tags) {
         switch (tags.craft) {
         case 'caterer':
             return '🍴';
         default:
-            break;
+            return '';
         }
+    }
+
+    function getAmenityIcon(tags) {
         switch (tags.amenity) {
         case 'fast_food':
             return '🍔';
@@ -107,15 +238,28 @@ var openvegemap = (function () {
         }
     }
 
+    function getIcon(tags) {
+        if (tags.shop) {
+            return getShopIcon(tags);
+        }
+        if (tags.craft) {
+            return getCraftIcon(tags);
+        }
+        if (tags.amenity) {
+            return getAmenityIcon(tags);
+        }
+        return '';
+    }
+
     function getLayer(tags) {
         if (isOnlyDiet('vegan', tags)) {
             return layers['vegan-only'];
         }
-        if (isOnlyDiet('vegetarian', tags)) {
-            return layers['vegetarian-only'];
-        }
         if (isDiet('vegan', tags)) {
             return layers.vegan;
+        }
+        if (isOnlyDiet('vegetarian', tags)) {
+            return layers['vegetarian-only'];
         }
         if (isDiet('vegetarian', tags)) {
             return layers.vegetarian;
@@ -168,7 +312,7 @@ var openvegemap = (function () {
             }));
             marker.on('click', showPopup);
             if (feature.tags.name) {
-                marker.bindTooltip(getIcon(feature.tags) + '&nbsp;' + feature.tags.name, { direction: 'bottom' });
+                marker.bindTooltip(getIcon(feature.tags) + '&nbsp;' + feature.tags.name, {direction: 'bottom'});
             }
             marker.addTo(getLayer(feature.tags));
         }
@@ -187,12 +331,7 @@ var openvegemap = (function () {
     }
 
     function locateMe() {
-        locate._layer = new L.LayerGroup();
-        locate._layer.addTo(map);
-        locate._map = map;
-        locate._container = L.DomUtil.create('div');
-        locate._icon = L.DomUtil.create('div');
-        locate.start();
+        map.locate({setView: true, enableHighAccuracy: true});
         menu.close();
     }
 
@@ -212,13 +351,6 @@ var openvegemap = (function () {
         data.elements.forEach(addMarker);
     }
 
-    function openDialog() {
-        dialogs[this.dialog].show();
-        if (dialogFunctions[this.dialog] && typeof dialogFunctions[this.dialog].show === 'function') {
-            dialogFunctions[this.dialog].show();
-        }
-    }
-
     function initDialog(dialog) {
         dialogs[dialog.id] = dialog;
         if (dialogFunctions[dialog.id] && typeof dialogFunctions[dialog.id].init === 'function') {
@@ -226,48 +358,43 @@ var openvegemap = (function () {
         }
     }
 
-    function setFilter(filter) {
-        var i;
-        for (i = 0; i < layerNames.length; i += 1) {
-            layers[layerNames[i]].removeFrom(map);
-        }
-        for (i = 0; i < layerNames.length; i += 1) {
-            if (!filter.endsWith('-only') || layerNames[i].endsWith('-only')) {
-                layers[layerNames[i]].addTo(map);
-            }
-            if (layerNames[i] === filter) {
-                break;
-            }
-        }
-        window.localStorage.setItem('filter', filter);
+    function removeLayer(layer) {
+        layers[layer].removeFrom(map);
     }
 
-    function applyFilter() {
-        var radios = document.getElementsByName('filter'),
-            i;
-        for (i = 0; i < radios.length; i += 1) {
-            if (radios[i].checked) {
-                setFilter(radios[i].getAttribute('input-id'));
-                break;
+    function setFilter(layer) {
+        layers[layer].addTo(map);
+    }
+
+    function applyFilters() {
+        var activeFilters = [];
+        layerNames.forEach(removeLayer);
+        layerNames.forEach(function (layer) {
+            var checkbox = L.DomUtil.get(layer + '-filter');
+            if (checkbox && checkbox.checked) {
+                activeFilters.push(layer);
             }
-        }
+        });
+        activeFilters.forEach(setFilter);
+        window.localStorage.setItem('filters', JSON.stringify(activeFilters));
         dialogs.filtersDialog.hide();
         menu.close();
     }
 
     function getCurFilter() {
-        var curFilter = window.localStorage.getItem('filter');
-        if (!curFilter) {
-            curFilter = 'vegetarian';
+        var curFilters = JSON.parse(window.localStorage.getItem('filters'));
+        if (!curFilters) {
+            curFilters = ['vegan', 'vegan-only', 'vegetarian', 'vegetarian-only'];
         }
-        return curFilter;
+        return curFilters;
+    }
+
+    function createLayer(layer) {
+        layers[layer] = L.layerGroup();
     }
 
     function createLayers() {
-        var i;
-        for (i = 0; i < layerNames.length; i += 1) {
-            layers[layerNames[i]] = L.layerGroup();
-        }
+        layerNames.forEach(createLayer);
     }
 
     function checkZoomLevel(e) {
@@ -284,7 +411,7 @@ var openvegemap = (function () {
     function geocodeDialogInit() {
         geocoder = new L.Control.Geocoder(
             {
-                geocoder: new L.Control.Geocoder.Nominatim({ serviceUrl: 'https://nominatim.openstreetmap.org/' }),
+                geocoder: new L.Control.Geocoder.Nominatim({serviceUrl: 'https://nominatim.openstreetmap.org/'}),
                 position: 'topleft',
                 defaultMarkGeocode: false
             }
@@ -297,11 +424,15 @@ var openvegemap = (function () {
     }
 
     function filtersDialogInit() {
-        L.DomEvent.on(L.DomUtil.get('filtersDialogBtn'), 'click', applyFilter);
+        L.DomEvent.on(L.DomUtil.get('filtersDialogBtn'), 'click', applyFilters);
+    }
+
+    function filtersDialogCheckbox(layer) {
+        L.DomUtil.get(layer + '-filter').checked = true;
     }
 
     function filtersDialogShow() {
-        L.DomUtil.get(getCurFilter()).checked = true;
+        getCurFilter().forEach(filtersDialogCheckbox);
     }
 
     function zoomToastInit() {
@@ -327,10 +458,10 @@ var openvegemap = (function () {
 
         //Events
         L.DomEvent.on(L.DomUtil.get('menuBtn'), 'click', openMenu);
-        L.DomEvent.on(L.DomUtil.get('geocodeMenuItem'), 'click', openDialog, { dialog: 'geocodeDialog' });
-        L.DomEvent.on(L.DomUtil.get('filtersMenuItem'), 'click', openDialog, { dialog: 'filtersDialog' });
+        L.DomEvent.on(L.DomUtil.get('geocodeMenuItem'), 'click', openDialog, {dialog: 'geocodeDialog'});
+        L.DomEvent.on(L.DomUtil.get('filtersMenuItem'), 'click', openDialog, {dialog: 'filtersDialog'});
         L.DomEvent.on(L.DomUtil.get('locateMenuItem'), 'click', locateMe);
-        L.DomEvent.on(L.DomUtil.get('aboutMenuItem'), 'click', openDialog, { dialog: 'aboutDialog' });
+        L.DomEvent.on(L.DomUtil.get('aboutMenuItem'), 'click', openDialog, {dialog: 'aboutDialog'});
 
         //Tiles
         L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', {
@@ -340,15 +471,12 @@ var openvegemap = (function () {
             attribution: '&copy; <a target="_blank" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors & <a target="_blank" href="https://maps.wikimedia.org/">Wikimedia maps</a>'
         }).addTo(map);
 
-        //Geolocation
-        locate = L.control.locate({ position: 'topright' });
-
         //Permalink
         if (L.UrlUtil.queryParse(hash).lat) {
             //Don't use localStorage value if we have a hash in the URL
             window.localStorage.setItem('paramsTemp', hash);
         }
-        map.addControl(new L.Control.Permalink({ useLocation: true, useLocalStorage: true }));
+        map.addControl(new L.Control.Permalink({useLocation: true, useLocalStorage: true}));
 
         //Legend
         map.addControl(
@@ -356,27 +484,28 @@ var openvegemap = (function () {
                 {
                     position: 'bottomright',
                     content: '<i class="fa fa-circle" style="background-color: #72AF26"></i> Vegan<br/>'
-                        + '<i class="fa fa-dot-circle-o" style="background-color: #72AF26"></i> Vegan only<br/>'
-                        + '<i class="fa fa-circle-o" style="background-color: #728224"></i> Vegetarian<br/>'
-                        + '<i class="fa fa-ban" style="background-color: #D63E2A"></i> Meat only<br/>'
-                        + '<i class="fa fa-question" style="background-color: #575757"></i> Unknown<br/>'
+                            + '<i class="fa fa-dot-circle-o" style="background-color: #72AF26"></i> Vegan only<br/>'
+                            + '<i class="fa fa-circle-o" style="background-color: #728224"></i> Vegetarian<br/>'
+                            + '<i class="fa fa-ban" style="background-color: #D63E2A"></i> Meat only<br/>'
+                            + '<i class="fa fa-question" style="background-color: #575757"></i> Unknown<br/>'
                 }
             )
         );
 
         //Overpass
-        new L.OverPassLayer({
+        var overpassLayer = new L.OverPassLayer({
             endPoint: 'https://overpass-api.de/api/',
             query: 'node({{bbox}})[~"^diet:.*$"~"."];out;way({{bbox}})[~"^diet:.*$"~"."];out center;',
             beforeRequest: showLoader,
             afterRequest: hideLoader,
             onSuccess: addMarkers,
             minZoomIndicatorEnabled: false
-        }).addTo(map);
+        });
+        overpassLayer.addTo(map);
 
         //Layers control
         createLayers();
-        setFilter(getCurFilter());
+        getCurFilter().forEach(setFilter);
 
         //Dialog functions
         dialogFunctions = {
@@ -387,7 +516,7 @@ var openvegemap = (function () {
                 init: filtersDialogInit,
                 show: filtersDialogShow
             },
-            zoomToast : {
+            zoomToast: {
                 init: zoomToastInit
             }
         };
@@ -398,6 +527,7 @@ var openvegemap = (function () {
         ons.createAlertDialog('templates/filters.html').then(initDialog);
         ons.createAlertDialog('templates/popup.html').then(initDialog);
         ons.createAlertDialog('templates/zoom.html').then(initDialog);
+        ons.createAlertDialog('templates/hours.html').then(initDialog);
 
         //Map events
         map.on('zoom', checkZoomLevel);
