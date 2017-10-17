@@ -9,7 +9,7 @@ This is a port of [OpenVegeMap](https://github.com/Rudloff/openvegemap/) to Andr
 ## Setup
 
 ```bash
-npm install
+yarn install
 cordova prepare
 cordova build
 ```
