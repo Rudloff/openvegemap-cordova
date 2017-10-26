@@ -408,16 +408,16 @@ browserify-zlib@~0.1.2:
   dependencies:
     pako "~0.2.0"
 
-browserify@13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/browserify/-/browserify-13.3.0.tgz#b5a9c9020243f0c70e4675bec8223bc627e415ce"
+browserify@14.4.0:
+  version "14.4.0"
+  resolved "https://registry.yarnpkg.com/browserify/-/browserify-14.4.0.tgz#089a3463af58d0e48d8cd4070b3f74654d5abca9"
   dependencies:
     JSONStream "^1.0.3"
     assert "^1.4.0"
     browser-pack "^6.0.1"
     browser-resolve "^1.11.0"
     browserify-zlib "~0.1.2"
-    buffer "^4.1.0"
+    buffer "^5.0.2"
     cached-path-relative "^1.0.0"
     concat-stream "~1.5.1"
     console-browserify "^1.1.0"
@@ -431,7 +431,7 @@ browserify@13.3.0:
     glob "^7.1.0"
     has "^1.0.0"
     htmlescape "^1.1.0"
-    https-browserify "~0.0.0"
+    https-browserify "^1.0.0"
     inherits "~2.0.1"
     insert-module-globals "^7.0.0"
     labeled-stream-splicer "^2.0.0"
@@ -449,7 +449,7 @@ browserify@13.3.0:
     shell-quote "^1.6.1"
     stream-browserify "^2.0.0"
     stream-http "^2.0.0"
-    string_decoder "~0.10.0"
+    string_decoder "~1.0.0"
     subarg "^1.0.0"
     syntax-error "^1.1.1"
     through2 "^2.0.0"
@@ -468,13 +468,12 @@ buffer-xor@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/buffer-xor/-/buffer-xor-1.0.3.tgz#26e61ed1422fb70dd42e6e36729ed51d855fe8d9"
 
-buffer@^4.1.0:
-  version "4.9.1"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
+buffer@^5.0.2:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/buffer/-/buffer-5.0.8.tgz#84daa52e7cf2fa8ce4195bc5cf0f7809e0930b24"
   dependencies:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
-    isarray "^1.0.0"
 
 builtin-modules@^1.0.0:
   version "1.1.1"
@@ -788,7 +787,7 @@ cordova-common@2.0.3:
     underscore "^1.8.3"
     unorm "^1.3.3"
 
-cordova-common@^2.1.0:
+cordova-common@2.1.1, cordova-common@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/cordova-common/-/cordova-common-2.1.1.tgz#e3a16a4f3d29a8e2b523128ac65478aca9ea1749"
   dependencies:
@@ -827,22 +826,32 @@ cordova-fetch@1.1.0:
     q "^1.4.1"
     shelljs "^0.7.0"
 
-cordova-js@4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/cordova-js/-/cordova-js-4.2.1.tgz#01ca186e14e63b01cb6d24e469750e481a038355"
+cordova-fetch@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/cordova-fetch/-/cordova-fetch-1.2.0.tgz#e32ea33f5834d68585a3f4946295c3ffe71f8060"
   dependencies:
-    browserify "13.3.0"
+    cordova-common "2.1.1"
+    dependency-ls "^1.1.0"
+    is-url "^1.2.1"
+    q "^1.4.1"
+    shelljs "^0.7.0"
 
-cordova-lib@7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/cordova-lib/-/cordova-lib-7.0.1.tgz#31cbb90daeb66a67a7d3091636ce729a22a4f7ff"
+cordova-js@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/cordova-js/-/cordova-js-4.2.2.tgz#a7eb20911e6a59f15ac64e7db6ec543df31c2f92"
+  dependencies:
+    browserify "14.4.0"
+
+cordova-lib@7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/cordova-lib/-/cordova-lib-7.1.0.tgz#f15aa0eda0e06e8c7e423a218404d59ec50f8594"
   dependencies:
     aliasify "^2.1.0"
-    cordova-common "2.0.3"
+    cordova-common "2.1.1"
     cordova-create "~1.1.0"
-    cordova-fetch "1.1.0"
-    cordova-js "4.2.1"
-    cordova-serve "^1.0.0"
+    cordova-fetch "1.2.0"
+    cordova-js "4.2.2"
+    cordova-serve "^2.0.0"
     dep-graph "1.1.0"
     elementtree "0.1.6"
     glob "7.1.1"
@@ -854,7 +863,7 @@ cordova-lib@7.0.1:
     properties-parser "0.3.1"
     q "1.0.1"
     request "2.79.0"
-    semver "5.3.0"
+    semver "^5.3.0"
     shelljs "0.3.0"
     tar "2.2.1"
     underscore "1.8.3"
@@ -895,14 +904,15 @@ cordova-registry-mapper@^1.1.8:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/cordova-registry-mapper/-/cordova-registry-mapper-1.1.15.tgz#e244b9185b8175473bff6079324905115f83dc7c"
 
-cordova-serve@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/cordova-serve/-/cordova-serve-1.0.1.tgz#895c7fb4bbe630fa1c89feaf6d74779cbff66da7"
+cordova-serve@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cordova-serve/-/cordova-serve-2.0.0.tgz#d7834b83b186607e2b8f1943e073c0633360ea43"
   dependencies:
     chalk "^1.1.1"
     compression "^1.6.0"
     express "^4.13.3"
-    q "^1.4.1"
+    open "0.0.5"
+    shelljs "^0.5.3"
 
 cordova-universal-links-plugin@^1.2.1:
   version "1.2.1"
@@ -914,13 +924,13 @@ cordova-universal-links-plugin@^1.2.1:
     rimraf ">=2.4"
     xml2js ">=0.4"
 
-cordova@~7.0.0:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/cordova/-/cordova-7.0.1.tgz#69fd054300ce5105b092f67a1b286e80c4e88b9d"
+cordova@~7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/cordova/-/cordova-7.1.0.tgz#559f5394e64145c9b6dd81800feb658d5087b096"
   dependencies:
     configstore "2.1.0"
-    cordova-common "2.0.3"
-    cordova-lib "7.0.1"
+    cordova-common "2.1.1"
+    cordova-lib "7.1.0"
     editor "1.0.0"
     insight "0.8.2"
     nopt "3.0.1"
@@ -1731,9 +1741,9 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-https-browserify@~0.0.0:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
+https-browserify@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
 iconv-lite@0.4.19:
   version "0.4.19"
@@ -1950,7 +1960,7 @@ isarray@0.0.1, isarray@~0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-0.0.1.tgz#8a18acfca9a8f4177e09abfc6038939b05d1eedf"
 
-isarray@^1.0.0, isarray@~1.0.0:
+isarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
 
@@ -2666,6 +2676,10 @@ onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
+open@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/open/-/open-0.0.5.tgz#42c3e18ec95466b6bf0dc42f3a2945c3f0cad8fc"
+
 opener@1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/opener/-/opener-1.4.2.tgz#b32582080042af8680c389a499175b4c54fff523"
@@ -3338,17 +3352,17 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0:
+"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.1.0, semver@^5.3.0:
   version "5.4.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
-
-semver@5.3.0, semver@~5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
 semver@~5.1.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.1.1.tgz#a3292a373e6f3e0798da0b20641b9a9c5bc47e19"
+
+semver@~5.3.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
 send@0.16.1:
   version "0.16.1"
@@ -3602,7 +3616,7 @@ string.prototype.codepointat@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/string.prototype.codepointat/-/string.prototype.codepointat-0.2.0.tgz#6b26e9bd3afcaa7be3b4269b526de1b82000ac78"
 
-string_decoder@~0.10.0, string_decoder@~0.10.x:
+string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
