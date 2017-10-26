@@ -26,9 +26,5 @@
             "PACKAGE_NAME": "pro.rudloff.openvegemap"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "pro.rudloff.openvegemap"
-        }
-    }
+    "dependent_plugins": {}
 }

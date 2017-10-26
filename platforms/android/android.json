@@ -55,9 +55,6 @@
         "cordova-plugin-exclude-files": {
             "PACKAGE_NAME": "pro.rudloff.openvegemap"
         },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "pro.rudloff.openvegemap"
-        },
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "pro.rudloff.openvegemap"
         },
@@ -109,7 +106,6 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-exclude-files": "0.2.2",
-        "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-geolocation": "2.4.3",
         "cordova-plugin-overview": "0.1.2",
         "cordova-plugin-statusbar": "2.2.3",
