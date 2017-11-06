@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-exclude-files": {
-      "PACKAGE_NAME": "pro.rudloff.openvegemap"
-    },
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "pro.rudloff.openvegemap"
     },

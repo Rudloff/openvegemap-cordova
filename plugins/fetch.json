@@ -1,12 +1,4 @@
 {
-  "cordova-plugin-exclude-files": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-exclude-files@^0.2.2"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-geolocation": {
     "source": {
       "type": "registry",

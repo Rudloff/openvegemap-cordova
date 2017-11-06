@@ -25,8 +25,6 @@
     <access origin="https://nominatim.openstreetmap.org" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <exclude-files pattern="dist/_*" />
-    <exclude-files pattern="dist/*.map" />
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />

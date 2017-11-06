@@ -26,7 +26,6 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-  "cordova-plugin-exclude-files": "0.2.2",
   "cordova-plugin-geolocation": "2.4.3",
   "cordova-plugin-whitelist": "1.3.2",
   "cordova-universal-links-plugin": "1.2.1"

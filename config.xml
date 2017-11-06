@@ -14,15 +14,12 @@
     <access origin="https://nominatim.openstreetmap.org" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <exclude-files pattern="dist/_*" />
-    <exclude-files pattern="dist/*.map" />
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />
     </universal-links>
     <preference name="android-minSdkVersion" value="19" />
     <engine name="android" spec="^6.2.3" />
-    <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
