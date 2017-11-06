@@ -1,58 +1,42 @@
 {
-    "cordova-plugin-exclude-files": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-exclude-files@^0.2.2"
-        },
-        "is_top_level": true,
-        "variables": {}
+  "cordova-plugin-exclude-files": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-exclude-files@^0.2.2"
     },
-    "cordova-plugin-geolocation": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-geolocation@^2.4.3"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-geolocation": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-geolocation@^2.4.3"
     },
-    "cordova-plugin-compat": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-compat@^1.0.0"
-        },
-        "is_top_level": false,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat@^1.0.0"
     },
-    "cordova-plugin-overview": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-overview@^0.1.2"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@^1.3.2"
     },
-    "cordova-plugin-statusbar": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-statusbar@^2.2.3"
-        },
-        "is_top_level": true,
-        "variables": {}
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-universal-links-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-universal-links-plugin@^1.2.1"
     },
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@^1.3.2"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-universal-links-plugin": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-universal-links-plugin@^1.2.1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    }
+    "is_top_level": true,
+    "variables": {}
+  }
 }

@@ -1,57 +1,7 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "cordova-plugin-geolocation@^2.4.3",
-        "scope": null,
-        "escapedName": "cordova-plugin-geolocation",
-        "name": "cordova-plugin-geolocation",
-        "rawSpec": "^2.4.3",
-        "spec": ">=2.4.3 <3.0.0",
-        "type": "range"
-      },
-      "/home/pierre/www/openvegemap-cordova/node_modules"
-    ]
-  ],
-  "_from": "cordova-plugin-geolocation@>=2.4.3 <3.0.0",
-  "_id": "cordova-plugin-geolocation@2.4.3",
-  "_inCache": true,
-  "_location": "/cordova-plugin-geolocation",
-  "_nodeVersion": "6.10.1",
-  "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/cordova-plugin-geolocation-2.4.3.tgz_1493685640809_0.01689610001631081"
-  },
-  "_npmUser": {
-    "name": "filmaj",
-    "email": "maj.fil@gmail.com"
-  },
-  "_npmVersion": "3.10.10",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "cordova-plugin-geolocation@^2.4.3",
-    "scope": null,
-    "escapedName": "cordova-plugin-geolocation",
-    "name": "cordova-plugin-geolocation",
-    "rawSpec": "^2.4.3",
-    "spec": ">=2.4.3 <3.0.0",
-    "type": "range"
-  },
-  "_requiredBy": [
-    "#USER",
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz",
-  "_shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
-  "_shrinkwrap": null,
-  "_spec": "cordova-plugin-geolocation@^2.4.3",
-  "_where": "/home/pierre/www/openvegemap-cordova/node_modules",
-  "author": {
-    "name": "Apache Software Foundation"
-  },
-  "bugs": {
-    "url": "https://github.com/apache/cordova-plugin-geolocation/issues"
-  },
+  "name": "cordova-plugin-geolocation",
+  "version": "2.4.3",
+  "description": "Cordova Geolocation Plugin",
   "cordova": {
     "id": "cordova-plugin-geolocation",
     "platforms": [
@@ -67,24 +17,10 @@
       "firefoxos"
     ]
   },
-  "dependencies": {},
-  "description": "Cordova Geolocation Plugin",
-  "devDependencies": {
-    "jshint": "^2.6.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apache/cordova-plugin-geolocation.git"
   },
-  "directories": {},
-  "dist": {
-    "shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
-    "tarball": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz"
-  },
-  "engines": {
-    "cordovaDependencies": {
-      "3.0.0": {
-        "cordova": ">100"
-      }
-    }
-  },
-  "homepage": "https://github.com/apache/cordova-plugin-geolocation#readme",
   "keywords": [
     "cordova",
     "geolocation",
@@ -100,7 +36,42 @@
     "cordova-windows",
     "cordova-firefoxos"
   ],
+  "scripts": {
+    "test": "npm run jshint",
+    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
+  },
+  "author": {
+    "name": "Apache Software Foundation"
+  },
   "license": "Apache-2.0",
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova": ">100"
+      }
+    }
+  },
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/apache/cordova-plugin-geolocation/issues"
+  },
+  "homepage": "https://github.com/apache/cordova-plugin-geolocation#readme",
+  "_id": "cordova-plugin-geolocation@2.4.3",
+  "_shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz",
+  "_from": "cordova-plugin-geolocation@>=2.4.3 <3.0.0",
+  "_npmVersion": "3.10.10",
+  "_nodeVersion": "6.10.1",
+  "_npmUser": {
+    "name": "filmaj",
+    "email": "maj.fil@gmail.com"
+  },
+  "dist": {
+    "shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz"
+  },
   "maintainers": [
     {
       "name": "bowserj",
@@ -127,17 +98,10 @@
       "email": "stevengill97@gmail.com"
     }
   ],
-  "name": "cordova-plugin-geolocation",
-  "optionalDependencies": {},
-  "readme": "---\ntitle: Geolocation\ndescription: Access GPS data.\n---\n<!--\n# license: Licensed to the Apache Software Foundation (ASF) under one\n#         or more contributor license agreements.  See the NOTICE file\n#         distributed with this work for additional information\n#         regarding copyright ownership.  The ASF licenses this file\n#         to you under the Apache License, Version 2.0 (the\n#         \"License\"); you may not use this file except in compliance\n#         with the License.  You may obtain a copy of the License at\n#\n#           http://www.apache.org/licenses/LICENSE-2.0\n#\n#         Unless required by applicable law or agreed to in writing,\n#         software distributed under the License is distributed on an\n#         \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n#         KIND, either express or implied.  See the License for the\n#         specific language governing permissions and limitations\n#         under the License.\n-->\n\n|Android 4.4|Android 5.1|Android 6.0|iOS 9.3|iOS 10.0|Windows 10 Store|Travis CI|\n|:-:|:-:|:-:|:-:|:-:|:-:|:-:|\n|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=android-4.4,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=android-4.4,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=android-5.1,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=android-5.1,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=android-6.0,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=android-6.0,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=ios-9.3,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=ios-9.3,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=ios-10.0,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=ios-10.0,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](http://cordova-ci.cloudapp.net:8080/buildStatus/icon?job=cordova-periodic-build/PLATFORM=windows-10-store,PLUGIN=cordova-plugin-geolocation)](http://cordova-ci.cloudapp.net:8080/job/cordova-periodic-build/PLATFORM=windows-10-store,PLUGIN=cordova-plugin-geolocation/)|[![Build Status](https://travis-ci.org/apache/cordova-plugin-geolocation.svg?branch=master)](https://travis-ci.org/apache/cordova-plugin-geolocation)|\n\n# cordova-plugin-geolocation\n\nThis plugin provides information about the device's location, such as\nlatitude and longitude.\n\nCommon sources of location information include\nGlobal Positioning System (GPS) and location inferred from network\nsignals such as IP address, RFID, WiFi and Bluetooth MAC addresses,\nand GSM/CDMA cell IDs. There is no guarantee that the API returns the\ndevice's actual location.\n\n> To get a few ideas, check out the [sample](#sample) at the bottom of this page or go straight to the [reference](#reference) content.\n\nThis API is based on the\n[W3C Geolocation API Specification](http://dev.w3.org/geo/api/spec-source.html),\nand only executes on devices that don't already provide an implementation.\n\n__WARNING__: Collection and use of geolocation data\nraises important privacy issues.  Your app's privacy policy should\ndiscuss how the app uses geolocation data, whether it is shared with\nany other parties, and the level of precision of the data (for\nexample, coarse, fine, ZIP code level, etc.).  Geolocation data is\ngenerally considered sensitive because it can reveal user's\nwhereabouts and, if stored, the history of their travels.\nTherefore, in addition to the app's privacy policy, you should\nstrongly consider providing a just-in-time notice before the app\naccesses geolocation data (if the device operating system doesn't do\nso already).  That notice should provide the same information noted\nabove, as well as obtaining the user's permission (e.g., by presenting\nchoices for __OK__ and __No Thanks__).  For more information, please\nsee the [Privacy Guide](http://cordova.apache.org/docs/en/latest/guide/appdev/privacy/index.html).\n\nThis plugin defines a global `navigator.geolocation` object (for platforms\nwhere it is otherwise missing).\n\nAlthough the object is in the global scope, features provided by this plugin\nare not available until after the `deviceready` event.\n\n```javascript\n\n    document.addEventListener(\"deviceready\", onDeviceReady, false);\n    function onDeviceReady() {\n        console.log(\"navigator.geolocation works well\");\n    }\n\n```\n## <a id=\"reference\"></a>Reference\n## Installation\n\nThis requires cordova 5.0+ ( current stable 1.0.0 )\n\n    cordova plugin add cordova-plugin-geolocation\n\nOlder versions of cordova can still install via the deprecated id ( stale 0.3.12 )\n\n    cordova plugin add org.apache.cordova.geolocation\n\nIt is also possible to install via repo url directly ( unstable )\n\n    cordova plugin add https://github.com/apache/cordova-plugin-geolocation.git\n\n## Supported Platforms\n\n- Amazon Fire OS\n- Android\n- BlackBerry 10\n- Firefox OS\n- iOS\n- Tizen\n- Windows Phone 7 and 8\n- Windows\n\n## Methods\n\n- navigator.geolocation.getCurrentPosition\n- navigator.geolocation.watchPosition\n- navigator.geolocation.clearWatch\n\n## Objects (Read-Only)\n\n- Position\n- PositionError\n- Coordinates\n\n## navigator.geolocation.getCurrentPosition\n\nReturns the device's current position to the `geolocationSuccess`\ncallback with a `Position` object as the parameter.  If there is an\nerror, the `geolocationError` callback is passed a\n`PositionError` object.\n\n    navigator.geolocation.getCurrentPosition(geolocationSuccess,\n                                             [geolocationError],\n                                             [geolocationOptions]);\n\n### Parameters\n\n- __geolocationSuccess__: The callback that is passed the current position.\n\n- __geolocationError__: _(Optional)_ The callback that executes if an error occurs.\n\n- __geolocationOptions__: _(Optional)_ The geolocation options.\n\n\n### Example\n\n```javascript\n\n    // onSuccess Callback\n    // This method accepts a Position object, which contains the\n    // current GPS coordinates\n    //\n    var onSuccess = function(position) {\n        alert('Latitude: '          + position.coords.latitude          + '\\n' +\n              'Longitude: '         + position.coords.longitude         + '\\n' +\n              'Altitude: '          + position.coords.altitude          + '\\n' +\n              'Accuracy: '          + position.coords.accuracy          + '\\n' +\n              'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\\n' +\n              'Heading: '           + position.coords.heading           + '\\n' +\n              'Speed: '             + position.coords.speed             + '\\n' +\n              'Timestamp: '         + position.timestamp                + '\\n');\n    };\n\n    // onError Callback receives a PositionError object\n    //\n    function onError(error) {\n        alert('code: '    + error.code    + '\\n' +\n              'message: ' + error.message + '\\n');\n    }\n\n    navigator.geolocation.getCurrentPosition(onSuccess, onError);\n\n```\n\n### iOS Quirks\n \n Since iOS 10 it's mandatory to add a `NSLocationWhenInUseUsageDescription` entry in the info.plist.\n \n `NSLocationWhenInUseUsageDescription` describes the reason that the app accesses the user's location. When the system prompts the user to allow access, this string is displayed as part of the dialog box. To add this entry you can pass the variable `GEOLOCATION_USAGE_DESCRIPTION` on plugin install.\n \n Example:\n `cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION=\"your usage message\"`\n \n If you don't pass the variable, the plugin will add an empty string as value.\n \n### Android Quirks\n\nIf Geolocation service is turned off the `onError` callback is invoked after `timeout` interval (if specified).\nIf `timeout` parameter is not specified then no callback is called.\n\n## navigator.geolocation.watchPosition\n\nReturns the device's current position when a change in position is detected.\nWhen the device retrieves a new location, the `geolocationSuccess`\ncallback executes with a `Position` object as the parameter.  If\nthere is an error, the `geolocationError` callback executes with a\n`PositionError` object as the parameter.\n\n    var watchId = navigator.geolocation.watchPosition(geolocationSuccess,\n                                                      [geolocationError],\n                                                      [geolocationOptions]);\n\n### Parameters\n\n- __geolocationSuccess__: The callback that is passed the current position.\n\n- __geolocationError__: (Optional) The callback that executes if an error occurs.\n\n- __geolocationOptions__: (Optional) The geolocation options.\n\n### Returns\n\n- __String__: returns a watch id that references the watch position interval. The watch id should be used with `navigator.geolocation.clearWatch` to stop watching for changes in position.\n\n### Example\n\n```javascript\n\n    // onSuccess Callback\n    //   This method accepts a `Position` object, which contains\n    //   the current GPS coordinates\n    //\n    function onSuccess(position) {\n        var element = document.getElementById('geolocation');\n        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +\n                            'Longitude: ' + position.coords.longitude     + '<br />' +\n                            '<hr />'      + element.innerHTML;\n    }\n\n    // onError Callback receives a PositionError object\n    //\n    function onError(error) {\n        alert('code: '    + error.code    + '\\n' +\n              'message: ' + error.message + '\\n');\n    }\n\n    // Options: throw an error if no update is received every 30 seconds.\n    //\n    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 30000 });\n\n```\n\n## geolocationOptions\n\nOptional parameters to customize the retrieval of the geolocation\n`Position`.\n\n    { maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };\n\n### Options\n\n- __enableHighAccuracy__: Provides a hint that the application needs the best possible results. By default, the device attempts to retrieve a `Position` using network-based methods. Setting this property to `true` tells the framework to use more accurate methods, such as satellite positioning. _(Boolean)_\n\n- __timeout__: The maximum length of time (milliseconds) that is allowed to pass from the call to `navigator.geolocation.getCurrentPosition` or `geolocation.watchPosition` until the corresponding `geolocationSuccess` callback executes. If the `geolocationSuccess` callback is not invoked within this time, the `geolocationError` callback is passed a `PositionError.TIMEOUT` error code. (Note that when used in conjunction with `geolocation.watchPosition`, the `geolocationError` callback could be called on an interval every `timeout` milliseconds!) _(Number)_\n\n- __maximumAge__: Accept a cached position whose age is no greater than the specified time in milliseconds. _(Number)_\n\n### Android Quirks\n\nIf Geolocation service is turned off the `onError` callback is invoked after `timeout` interval (if specified).\nIf `timeout` parameter is not specified then no callback is called.\n\n## navigator.geolocation.clearWatch\n\nStop watching for changes to the device's location referenced by the\n`watchID` parameter.\n\n    navigator.geolocation.clearWatch(watchID);\n\n### Parameters\n\n- __watchID__: The id of the `watchPosition` interval to clear. (String)\n\n### Example\n\n```javascript\n\n    // Options: watch for changes in position, and use the most\n    // accurate position acquisition method available.\n    //\n    var watchID = navigator.geolocation.watchPosition(onSuccess, onError, { enableHighAccuracy: true });\n\n    // ...later on...\n\n    navigator.geolocation.clearWatch(watchID);\n\n```\n\n## Position\n\nContains `Position` coordinates and timestamp, created by the geolocation API.\n\n### Properties\n\n- __coords__: A set of geographic coordinates. _(Coordinates)_\n\n- __timestamp__: Creation timestamp for `coords`. _(DOMTimeStamp)_\n\n## Coordinates\n\nA `Coordinates` object is attached to a `Position` object that is\navailable to callback functions in requests for the current position.\nIt contains a set of properties that describe the geographic coordinates of a position.\n\n### Properties\n\n* __latitude__: Latitude in decimal degrees. _(Number)_\n\n* __longitude__: Longitude in decimal degrees. _(Number)_\n\n* __altitude__: Height of the position in meters above the ellipsoid. _(Number)_\n\n* __accuracy__: Accuracy level of the latitude and longitude coordinates in meters. _(Number)_\n\n* __altitudeAccuracy__: Accuracy level of the altitude coordinate in meters. _(Number)_\n\n* __heading__: Direction of travel, specified in degrees counting clockwise relative to the true north. _(Number)_\n\n* __speed__: Current ground speed of the device, specified in meters per second. _(Number)_\n\n###  Amazon Fire OS Quirks\n\n__altitudeAccuracy__: Not supported by Android devices, returning `null`.\n\n### Android Quirks\n\n__altitudeAccuracy__: Not supported by Android devices, returning `null`.\n\n## PositionError\n\nThe `PositionError` object is passed to the `geolocationError`\ncallback function when an error occurs with navigator.geolocation.\n\n### Properties\n\n- __code__: One of the predefined error codes listed below.\n\n- __message__: Error message describing the details of the error encountered.\n\n### Constants\n\n- `PositionError.PERMISSION_DENIED`\n  - Returned when users do not allow the app to retrieve position information. This is dependent on the platform.\n- `PositionError.POSITION_UNAVAILABLE`\n  - Returned when the device is unable to retrieve a position. In general, this means the device is not connected to a network or can't get a satellite fix.\n- `PositionError.TIMEOUT`\n  - Returned when the device is unable to retrieve a position within the time specified by the `timeout` included in `geolocationOptions`. When used with `navigator.geolocation.watchPosition`, this error could be repeatedly passed to the `geolocationError` callback every `timeout` milliseconds.\n\n\n## <a id=\"sample\"></a>Sample: Get the weather, find stores, and see photos of things nearby with Geolocation ##\n\nUse this plugin to help users find things near them such as Groupon deals, houses for sale, movies playing, sports and entertainment events and more.\n\nHere's a \"cookbook\" of ideas to get you started. In the snippets below, we'll show you some basic ways to add these features to your app.\n\n* [Get your coordinates](#coords).\n* [Get the weather forecast](#weather).\n* [Receive updated weather forecasts as you drive around](#receive).\n* [See where you are on a map](#see).\n* [Find stores near you](#find).\n* [See pictures of things around you](#see).\n\n## <a id=\"coord\"></a>Get your geolocation coordinates\n\n```javascript\n\nfunction getWeatherLocation() {\n\n    navigator.geolocation.getCurrentPosition\n    (onWeatherSuccess, onWeatherError, { enableHighAccuracy: true });\n}\n\n```\n## <a id=\"weather\"></a>Get the weather forecast\n\n```javascript\n\n// Success callback for get geo coordinates\n\nvar onWeatherSuccess = function (position) {\n\n    Latitude = position.coords.latitude;\n    Longitude = position.coords.longitude;\n\n    getWeather(Latitude, Longitude);\n}\n\n// Get weather by using coordinates\n\nfunction getWeather(latitude, longitude) {\n\n    // Get a free key at http://openweathermap.org/. Replace the \"Your_Key_Here\" string with that key.\n    var OpenWeatherAppKey = \"Your_Key_Here\";\n\n    var queryString =\n      'http://api.openweathermap.org/data/2.5/weather?lat='\n      + latitude + '&lon=' + longitude + '&appid=' + OpenWeatherAppKey + '&units=imperial';\n\n    $.getJSON(queryString, function (results) {\n\n        if (results.weather.length) {\n\n            $.getJSON(queryString, function (results) {\n\n                if (results.weather.length) {\n\n                    $('#description').text(results.name);\n                    $('#temp').text(results.main.temp);\n                    $('#wind').text(results.wind.speed);\n                    $('#humidity').text(results.main.humidity);\n                    $('#visibility').text(results.weather[0].main);\n\n                    var sunriseDate = new Date(results.sys.sunrise);\n                    $('#sunrise').text(sunriseDate.toLocaleTimeString());\n\n                    var sunsetDate = new Date(results.sys.sunrise);\n                    $('#sunset').text(sunsetDate.toLocaleTimeString());\n                }\n\n            });\n        }\n    }).fail(function () {\n        console.log(\"error getting location\");\n    });\n}\n\n// Error callback\n\nfunction onWeatherError(error) {\n    console.log('code: ' + error.code + '\\n' +\n        'message: ' + error.message + '\\n');\n}\n\n```\n\n## <a id=\"receive\"></a>Receive updated weather forecasts as you drive around\n\n```javascript\n\n// Watch your changing position\n\nfunction watchWeatherPosition() {\n\n    return navigator.geolocation.watchPosition\n    (onWeatherWatchSuccess, onWeatherError, { enableHighAccuracy: true });\n}\n\n// Success callback for watching your changing position\n\nvar onWeatherWatchSuccess = function (position) {\n\n    var updatedLatitude = position.coords.latitude;\n    var updatedLongitude = position.coords.longitude;\n\n    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {\n\n        Latitude = updatedLatitude;\n        Longitude = updatedLongitude;\n\n        // Calls function we defined earlier.\n        getWeather(updatedLatitude, updatedLongitude);\n    }\n}\n\n```\n\n## <a id=\"see\"></a>See where you are on a map\n\nBoth Bing and Google have map services. We'll use Google's. You'll need a key but it's free if you're just trying things out.\n\nAdd a reference to the **maps** service.\n\n```HTML\n\n <script src=\"https://maps.googleapis.com/maps/api/js?key=Your_API_Key\"></script>\n\n```\nThen, add code to use it.\n\n```javascript\n\nvar Latitude = undefined;\nvar Longitude = undefined;\n\n// Get geo coordinates\n\nfunction getMapLocation() {\n\n    navigator.geolocation.getCurrentPosition\n    (onMapSuccess, onMapError, { enableHighAccuracy: true });\n}\n\n// Success callback for get geo coordinates\n\nvar onMapSuccess = function (position) {\n\n    Latitude = position.coords.latitude;\n    Longitude = position.coords.longitude;\n\n    getMap(Latitude, Longitude);\n\n}\n\n// Get map by using coordinates\n\nfunction getMap(latitude, longitude) {\n\n    var mapOptions = {\n        center: new google.maps.LatLng(0, 0),\n        zoom: 1,\n        mapTypeId: google.maps.MapTypeId.ROADMAP\n    };\n\n    map = new google.maps.Map\n    (document.getElementById(\"map\"), mapOptions);\n\n\n    var latLong = new google.maps.LatLng(latitude, longitude);\n\n    var marker = new google.maps.Marker({\n        position: latLong\n    });\n\n    marker.setMap(map);\n    map.setZoom(15);\n    map.setCenter(marker.getPosition());\n}\n\n// Success callback for watching your changing position\n\nvar onMapWatchSuccess = function (position) {\n\n    var updatedLatitude = position.coords.latitude;\n    var updatedLongitude = position.coords.longitude;\n\n    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {\n\n        Latitude = updatedLatitude;\n        Longitude = updatedLongitude;\n\n        getMap(updatedLatitude, updatedLongitude);\n    }\n}\n\n// Error callback\n\nfunction onMapError(error) {\n    console.log('code: ' + error.code + '\\n' +\n        'message: ' + error.message + '\\n');\n}\n\n// Watch your changing position\n\nfunction watchMapPosition() {\n\n    return navigator.geolocation.watchPosition\n    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });\n}\n\n```\n\n## <a id=\"find\"></a>Find stores near you\n\nYou can use the same Google key for this.\n\nAdd a reference to the **places** service.\n\n```HTML\n\n<script src=\n\"https://maps.googleapis.com/maps/api/js?key=Your_API_Key&libraries=places\">\n</script>\n\n```\n\nThen, add code to use it.\n\n```javascript\n\nvar Map;\nvar Infowindow;\nvar Latitude = undefined;\nvar Longitude = undefined;\n\n// Get geo coordinates\n\nfunction getPlacesLocation() {\n    navigator.geolocation.getCurrentPosition\n    (onPlacesSuccess, onPlacesError, { enableHighAccuracy: true });\n}\n\n// Success callback for get geo coordinates\n\nvar onPlacesSuccess = function (position) {\n\n    Latitude = position.coords.latitude;\n    Longitude = position.coords.longitude;\n\n    getPlaces(Latitude, Longitude);\n\n}\n\n// Get places by using coordinates\n\nfunction getPlaces(latitude, longitude) {\n\n    var latLong = new google.maps.LatLng(latitude, longitude);\n\n    var mapOptions = {\n\n        center: new google.maps.LatLng(latitude, longitude),\n        zoom: 15,\n        mapTypeId: google.maps.MapTypeId.ROADMAP\n\n    };\n\n    Map = new google.maps.Map(document.getElementById(\"places\"), mapOptions);\n\n    Infowindow = new google.maps.InfoWindow();\n\n    var service = new google.maps.places.PlacesService(Map);\n    service.nearbySearch({\n\n        location: latLong,\n        radius: 500,\n        type: ['store']\n    }, foundStoresCallback);\n\n}\n\n// Success callback for watching your changing position\n\nvar onPlacesWatchSuccess = function (position) {\n\n    var updatedLatitude = position.coords.latitude;\n    var updatedLongitude = position.coords.longitude;\n\n    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {\n\n        Latitude = updatedLatitude;\n        Longitude = updatedLongitude;\n\n        getPlaces(updatedLatitude, updatedLongitude);\n    }\n}\n\n// Success callback for locating stores in the area\n\nfunction foundStoresCallback(results, status) {\n\n    if (status === google.maps.places.PlacesServiceStatus.OK) {\n\n        for (var i = 0; i < results.length; i++) {\n\n            createMarker(results[i]);\n\n        }\n    }\n}\n\n// Place a pin for each store on the map\n\nfunction createMarker(place) {\n\n    var placeLoc = place.geometry.location;\n\n    var marker = new google.maps.Marker({\n        map: Map,\n        position: place.geometry.location\n    });\n\n    google.maps.event.addListener(marker, 'click', function () {\n\n        Infowindow.setContent(place.name);\n        Infowindow.open(Map, this);\n\n    });\n}\n\n// Error callback\n\nfunction onPlacesError(error) {\n    console.log('code: ' + error.code + '\\n' +\n        'message: ' + error.message + '\\n');\n}\n\n// Watch your changing position\n\nfunction watchPlacesPosition() {\n\n    return navigator.geolocation.watchPosition\n    (onPlacesWatchSuccess, onPlacesError, { enableHighAccuracy: true });\n}\n\n```\n\n## <a id=\"pictures\"></a>See pictures of things around you\n\nDigital photos can contain geo coordinates that identify where the picture was taken.\n\nUse Flickr API's to find pictures that folks have taken near you. Like Google services, you'll need a key, but it's free if you just want to try things out.\n\n```javascript\n\nvar Latitude = undefined;\nvar Longitude = undefined;\n\n// Get geo coordinates\n\nfunction getPicturesLocation() {\n\n    navigator.geolocation.getCurrentPosition\n    (onPicturesSuccess, onPicturesError, { enableHighAccuracy: true });\n\n}\n\n// Success callback for get geo coordinates\n\nvar onPicturesSuccess = function (position) {\n\n    Latitude = position.coords.latitude;\n    Longitude = position.coords.longitude;\n\n    getPictures(Latitude, Longitude);\n}\n\n// Get pictures by using coordinates\n\nfunction getPictures(latitude, longitude) {\n\n    $('#pictures').empty();\n\n    var queryString =\n    \"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=Your_API_Key&lat=\"\n    + latitude + \"&lon=\" + longitude + \"&format=json&jsoncallback=?\";\n\n    $.getJSON(queryString, function (results) {\n        $.each(results.photos.photo, function (index, item) {\n\n            var photoURL = \"http://farm\" + item.farm + \".static.flickr.com/\" +\n                item.server + \"/\" + item.id + \"_\" + item.secret + \"_m.jpg\";\n\n            $('#pictures').append($(\"<img />\").attr(\"src\", photoURL));\n\n           });\n        }\n    );\n}\n\n// Success callback for watching your changing position\n\nvar onPicturesWatchSuccess = function (position) {\n\n    var updatedLatitude = position.coords.latitude;\n    var updatedLongitude = position.coords.longitude;\n\n    if (updatedLatitude != Latitude && updatedLongitude != Longitude) {\n\n        Latitude = updatedLatitude;\n        Longitude = updatedLongitude;\n\n        getPictures(updatedLatitude, updatedLongitude);\n    }\n}\n\n// Error callback\n\nfunction onPicturesError(error) {\n\n    console.log('code: ' + error.code + '\\n' +\n        'message: ' + error.message + '\\n');\n}\n\n// Watch your changing position\n\nfunction watchPicturePosition() {\n\n    return navigator.geolocation.watchPosition\n    (onPicturesWatchSuccess, onPicturesError, { enableHighAccuracy: true });\n}\n\n```\n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/apache/cordova-plugin-geolocation.git"
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/cordova-plugin-geolocation-2.4.3.tgz_1493685640809_0.01689610001631081"
   },
-  "scripts": {
-    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests",
-    "test": "npm run jshint"
-  },
-  "version": "2.4.3"
+  "directories": {},
+  "readme": "ERROR: No README data found!"
 }

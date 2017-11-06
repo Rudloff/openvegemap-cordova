@@ -15,14 +15,6 @@ module.exports = [
     "runs": true
   },
   {
-    "id": "cordova-plugin-statusbar.statusbar",
-    "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-    "pluginId": "cordova-plugin-statusbar",
-    "clobbers": [
-      "window.StatusBar"
-    ]
-  },
-  {
     "id": "cordova-universal-links-plugin.universalLinks",
     "file": "plugins/cordova-universal-links-plugin/www/universal_links.js",
     "pluginId": "cordova-universal-links-plugin",
@@ -36,8 +28,6 @@ module.exports.metadata =
 {
   "cordova-plugin-exclude-files": "0.2.2",
   "cordova-plugin-geolocation": "2.4.3",
-  "cordova-plugin-overview": "0.1.2",
-  "cordova-plugin-statusbar": "2.2.3",
   "cordova-plugin-whitelist": "1.3.2",
   "cordova-universal-links-plugin": "1.2.1"
 };
