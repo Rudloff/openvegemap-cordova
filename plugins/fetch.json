@@ -30,5 +30,13 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-exclude-files": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-exclude-files"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

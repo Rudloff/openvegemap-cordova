@@ -25,6 +25,21 @@
     <access origin="https://nominatim.openstreetmap.org" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <exclude-files pattern="node_modules/onsenui/*-src/" />
+    <exclude-files pattern="node_modules/onsenui/js/onsenui.js" />
+    <exclude-files pattern="node_modules/onsenui/js/angular-*" />
+    <exclude-files pattern="node_modules/onsenui/css/*-css-components.css" />
+    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.svg" />
+    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.eot" />
+    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.ttf" />
+    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.otf" />
+    <exclude-files pattern="node_modules/core-js/" />
+    <exclude-files pattern="node_modules/@onsenui/" />
+    <exclude-files pattern="node_modules/leaflet-plugins/debug/" />
+    <exclude-files pattern="node_modules/leaflet-plugins/examples/" />
+    <exclude-files pattern="node_modules/leaflet/src/" />
+    <exclude-files pattern="node_modules/leaflet/dist/*-src.js" />
+    <exclude-files pattern="node_modules/leaflet/dist/*.map" />
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />

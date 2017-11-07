@@ -28,7 +28,8 @@ module.exports.metadata =
 {
   "cordova-plugin-geolocation": "2.4.3",
   "cordova-plugin-whitelist": "1.3.2",
-  "cordova-universal-links-plugin": "1.2.1"
+  "cordova-universal-links-plugin": "1.2.1",
+  "cordova-plugin-exclude-files": "0.2.2"
 };
 // BOTTOM OF METADATA
 });
