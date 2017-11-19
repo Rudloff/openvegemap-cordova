@@ -900,9 +900,9 @@ cordova@~7.1.0:
     q "1.0.1"
     update-notifier "0.5.0"
 
-core-js@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
+core-js@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.1.tgz#ae6874dc66937789b80754ff5428df66819ca50b"
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -1594,6 +1594,10 @@ grunt-legacy-util@~1.0.0:
     underscore.string "~3.2.3"
     which "~1.2.1"
 
+grunt-loadnpmtasks@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/grunt-loadnpmtasks/-/grunt-loadnpmtasks-0.3.4.tgz#e7c91eafcc939f658ea9efa3b3424f8cdeb4e59b"
+
 grunt@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/grunt/-/grunt-1.0.1.tgz#e8778764e944b18f32bb0f10b9078475c9dfb56b"
@@ -2096,18 +2100,18 @@ leaflet-loader@~0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/leaflet-loader/-/leaflet-loader-0.0.1.tgz#39792e0b56f7ed74c9e0d9edde28d1c0bd347595"
 
-leaflet-overpass-layer@~2.7.0:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/leaflet-overpass-layer/-/leaflet-overpass-layer-2.7.0.tgz#8a9d5d18f1f8389721e60bbec38fa7f1f91a4cd3"
+leaflet-overpass-layer@~2.8.0:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/leaflet-overpass-layer/-/leaflet-overpass-layer-2.8.2.tgz#a3fe451715afde226562bcafdf3bef7ef95ff5a2"
   dependencies:
     js-clipper "^1.0.1"
-    leaflet "^1.0.1"
+    leaflet "^1.2.0"
 
 leaflet-plugins@~3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/leaflet-plugins/-/leaflet-plugins-3.0.1.tgz#aa0c29e3cf71de33784efaa02de177a246dd53b1"
 
-leaflet@^1.0.0, leaflet@^1.0.1, leaflet@~1.2.0:
+leaflet@^1.0.0, leaflet@^1.2.0, leaflet@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
 
@@ -2607,12 +2611,12 @@ onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
-onsenui@~2.7.0:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.7.2.tgz#f4181f4815bc7d6375d7048dce4736fcc426d357"
+onsenui@~2.8.0:
+  version "2.8.1"
+  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.8.1.tgz#818eddbba5897c840e2f9998d00b62e24c448925"
   dependencies:
     "@onsenui/custom-elements" "1.0.0"
-    core-js "2.4.1"
+    core-js "^2.5.1"
 
 open@0.0.5:
   version "0.0.5"
@@ -2633,18 +2637,22 @@ opening_hours@~3.5.0:
     suncalc "^1.8.0"
     uglify-js "^2.7.5"
 
-openvegemap@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/openvegemap/-/openvegemap-0.5.0.tgz#43789b800c8e979c81f25d6a84e948eb4252607e"
+openvegemap@0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/openvegemap/-/openvegemap-0.5.2.tgz#dc389a138f3990c100a34f52001043cbbf3fc738"
   dependencies:
     drmonty-leaflet-awesome-markers "~2.0.2"
+    grunt "~1.0.1"
+    grunt-contrib-cssmin "^2.2.1"
+    grunt-contrib-uglify "~3.1.0"
+    grunt-loadnpmtasks "^0.3.4"
     leaflet "~1.2.0"
     leaflet-control-geocoder "~1.5.5"
     leaflet-info-control "~0.2.0"
     leaflet-loader "~0.0.1"
-    leaflet-overpass-layer "~2.7.0"
+    leaflet-overpass-layer "~2.8.0"
     leaflet-plugins "~3.0.0"
-    onsenui "~2.7.0"
+    onsenui "~2.8.0"
     opening_hours "~3.5.0"
 
 os-browserify@~0.1.1:

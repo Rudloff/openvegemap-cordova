@@ -60,12 +60,13 @@ module.exports = function (grunt) {
                 prod: {
                     deployTo: '/var/www/openvegemap/',
                     servers: 'pierre@dev.rudloff.pro',
-                    postUpdateCmd: 'yarn install; ./node_modules/.bin/grunt'
+                    postUpdateCmd: 'yarn install --prod; grunt'
                 }
             }
         }
     );
 
+    require('grunt-loadnpmtasks').extend(grunt);
     grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-jsonlint');
     grunt.loadNpmTasks('grunt-fixpack');
