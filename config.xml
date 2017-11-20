@@ -14,21 +14,6 @@
     <access origin="https://nominatim.openstreetmap.org" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
-    <exclude-files pattern="node_modules/onsenui/*-src/" />
-    <exclude-files pattern="node_modules/onsenui/js/onsenui.js" />
-    <exclude-files pattern="node_modules/onsenui/js/angular-*" />
-    <exclude-files pattern="node_modules/onsenui/css/*-css-components.css" />
-    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.svg" />
-    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.eot" />
-    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.ttf" />
-    <exclude-files pattern="node_modules/onsenui/css/*/fonts/*.otf" />
-    <exclude-files pattern="node_modules/core-js/" />
-    <exclude-files pattern="node_modules/@onsenui/" />
-    <exclude-files pattern="node_modules/leaflet-plugins/debug/" />
-    <exclude-files pattern="node_modules/leaflet-plugins/examples/" />
-    <exclude-files pattern="node_modules/leaflet/src/" />
-    <exclude-files pattern="node_modules/leaflet/dist/*-src.js" />
-    <exclude-files pattern="node_modules/leaflet/dist/*.map" />
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />
@@ -38,5 +23,4 @@
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
-    <plugin name="cordova-plugin-exclude-files" spec="^0.2.2" />
 </widget>

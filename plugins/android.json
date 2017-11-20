@@ -15,9 +15,6 @@
     },
     "cordova-universal-links-plugin": {
       "PACKAGE_NAME": "pro.rudloff.openvegemap"
-    },
-    "cordova-plugin-exclude-files": {
-      "PACKAGE_NAME": "pro.rudloff.openvegemap"
     }
   },
   "dependent_plugins": {}
