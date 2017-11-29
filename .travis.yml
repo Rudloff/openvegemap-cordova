@@ -3,7 +3,7 @@ language: android
 android:
     components:
         - tools
-        - android-25
+        - android-26
 jdk: oraclejdk8
 before_install:
     - nvm install 6

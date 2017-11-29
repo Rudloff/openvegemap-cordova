@@ -1,50 +1,42 @@
 {
-    "name": "openvegemap-cordova",
-    "description": "OpenVegeMap Cordova app",
-    "version": "0.4.3",
-    "author": "Pierre Rudloff",
-    "bugs": "https://github.com/Rudloff/openvegemap-cordova/issues",
-    "cordova": {
-        "platforms": [
-            "android"
-        ],
-        "plugins": {
-            "cordova-plugin-exclude-files": {},
-            "cordova-plugin-geolocation": {},
-            "cordova-plugin-overview": {},
-            "cordova-plugin-whitelist": {},
-            "cordova-plugin-statusbar": {},
-            "cordova-universal-links-plugin": {}
-        }
-    },
-    "dependencies": {
-        "cordova-android": "^6.2.3",
-        "cordova-plugin-compat": "^1.1.0",
-        "cordova-plugin-exclude-files": "^0.2.2",
-        "cordova-plugin-geolocation": "^2.4.3",
-        "cordova-plugin-overview": "^0.1.2",
-        "cordova-plugin-statusbar": "^2.2.3",
-        "cordova-plugin-whitelist": "^1.3.2",
-        "cordova-universal-links-plugin": "^1.2.1",
-        "openvegemap": "0.4.3"
-    },
-    "devDependencies": {
-        "cordova": "~7.0.0",
-        "npm": "~4.5.0"
-    },
-    "homepage": "https://github.com/Rudloff/openvegemap-cordova",
-    "keywords": [
-        "cordova",
-        "map",
-        "openstreetmap",
-        "vegan",
-        "vegetarian"
+  "name": "openvegemap-cordova",
+  "description": "OpenVegeMap Cordova app",
+  "version": "0.6.0",
+  "author": "Pierre Rudloff",
+  "bugs": "https://github.com/Rudloff/openvegemap-cordova/issues",
+  "cordova": {
+    "platforms": [
+      "android"
     ],
-    "license": "GPL-3.0",
-    "main": "www/index.html",
-    "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
-    "scripts": {
-        "clean": "rm -r platforms/ plugins/; cordova prepare",
-        "postinstall": "cd www/; npm install; ./node_modules/.bin/bower install; ./node_modules/.bin/grunt"
+    "plugins": {
+      "cordova-plugin-geolocation": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-universal-links-plugin": {}
     }
+  },
+  "dependencies": {
+    "cordova-android": "^6.2.3",
+    "cordova-plugin-compat": "^1.1.0",
+    "cordova-plugin-geolocation": "^2.4.3",
+    "cordova-plugin-whitelist": "^1.3.2",
+    "cordova-universal-links-plugin": "^1.2.1",
+    "openvegemap": "0.6.0"
+  },
+  "devDependencies": {
+    "cordova": "~7.1.0"
+  },
+  "homepage": "https://github.com/Rudloff/openvegemap-cordova",
+  "keywords": [
+    "cordova",
+    "map",
+    "openstreetmap",
+    "vegan",
+    "vegetarian"
+  ],
+  "license": "GPL-3.0",
+  "main": "www/dist/bundle.js",
+  "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
+  "scripts": {
+    "clean": "rm -r platforms/ plugins/; cordova prepare"
+  }
 }

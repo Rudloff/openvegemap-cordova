@@ -1,50 +1,39 @@
 {
-  "_from": "openvegemap@0.4.3",
-  "_id": "openvegemap@0.4.3",
-  "_inBundle": false,
-  "_integrity": "sha512-JxSXlO6eg/ZjXALAHIhfzo1LRfc1yJU7v8kUzhwaRLmmPQaM73mLAVo78VaLBQmJpJ5PSUcEKpmHJM/fJyVKTQ==",
-  "_location": "/openvegemap",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "openvegemap@0.4.3",
-    "name": "openvegemap",
-    "escapedName": "openvegemap",
-    "rawSpec": "0.4.3",
-    "saveSpec": null,
-    "fetchSpec": "0.4.3"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/openvegemap/-/openvegemap-0.4.3.tgz",
-  "_shasum": "e5fd81c13c8d5702dec393c23d5f55fc82834ca9",
-  "_spec": "openvegemap@0.4.3",
-  "_where": "/home/pierre/www/openvegemap-cordova",
-  "author": {
-    "name": "Pierre Rudloff"
-  },
-  "bugs": {
-    "url": "https://github.com/Rudloff/openvegemap/issues"
-  },
-  "bundleDependencies": false,
-  "deprecated": false,
+  "name": "openvegemap",
   "description": "Find vegetarian and vegan restaurants in your city",
-  "devDependencies": {
-    "bower": "~1.8.0",
+  "version": "0.6.0",
+  "author": "Pierre Rudloff",
+  "bugs": "https://github.com/Rudloff/openvegemap/issues",
+  "dependencies": {
+    "css-loader": "~0.28.7",
+    "drmonty-leaflet-awesome-markers": "~2.0.2",
+    "file-loader": "~1.1.5",
     "grunt": "~1.0.1",
-    "grunt-bower-concat": "~1.0.0",
+    "grunt-loadnpmtasks": "~0.3.4",
+    "grunt-webpack": "~3.0.2",
+    "i18next-client": "~1.11.4",
+    "leaflet": "~1.2.0",
+    "leaflet-control-geocoder": "~1.5.5",
+    "leaflet-info-control": "~0.3.0",
+    "leaflet-loader": "~0.0.1",
+    "leaflet-overpass-layer": "~2.8.0",
+    "leaflet-plugins": "~3.0.0",
+    "onsenui": "~2.8.0",
+    "opening_hours": "~3.5.0",
+    "style-loader": "~0.19.0",
+    "webpack": "~3.8.1"
+  },
+  "devDependencies": {
     "grunt-contrib-csslint": "~2.0.0",
-    "grunt-contrib-cssmin": "^2.2.1",
-    "grunt-contrib-imagemin": "~1.0.1",
-    "grunt-contrib-uglify": "~3.0.0",
     "grunt-contrib-watch": "~1.0.0",
     "grunt-fixpack": "~0.1.0",
-    "grunt-jslint": "^1.2.0",
+    "grunt-jslint": "~1.2.0",
     "grunt-jsonlint": "~1.1.0",
-    "grunt-shipit": "^1.0.1",
+    "grunt-shipit": "~1.0.1",
     "shipit-git-update": "~0.1.0"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
   },
   "homepage": "https://github.com/Rudloff/openvegemap",
   "keywords": [
@@ -52,11 +41,12 @@
     "openstreemap"
   ],
   "license": "GPL-3.0",
-  "main": "index.html",
-  "name": "openvegemap",
+  "main": "dist/bundle.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rudloff/openvegemap.git"
+    "url": "https://github.com/Rudloff/openvegemap.git"
   },
-  "version": "0.4.3"
+  "scripts": {
+    "postinstall": "grunt"
+  }
 }
