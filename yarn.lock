@@ -6,6 +6,10 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@onsenui/custom-elements/-/custom-elements-1.0.0.tgz#8e2b5c8968b8d94da70c6e92ecc56b47f79a0ff3"
 
+"@onsenui/fastclick@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@onsenui/fastclick/-/fastclick-1.1.0.tgz#6294390b46ea975e1a7d65b1c014665140b73c4f"
+
 JSONStream@^1.0.3:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/JSONStream/-/JSONStream-1.3.1.tgz#707f761e01dae9e16f1bcf93703b78c70966579a"
@@ -42,7 +46,7 @@ acorn@^5.0.0, acorn@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.2.1.tgz#317ac7821826c22c702d66189ab8359675f135d7"
 
-ajv-keywords@^2.0.0:
+ajv-keywords@^2.0.0, ajv-keywords@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-2.1.1.tgz#617997fc5f60576894c435f940d819e135b80762"
 
@@ -2595,9 +2599,13 @@ leaflet-plugins@~3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/leaflet-plugins/-/leaflet-plugins-3.0.1.tgz#aa0c29e3cf71de33784efaa02de177a246dd53b1"
 
-leaflet@^1.0.0, leaflet@^1.2.0, leaflet@~1.2.0:
+leaflet@^1.0.0, leaflet@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.2.0.tgz#fd5d93d9cb00091f5f8a69206d0d6744c1c82697"
+
+leaflet@~1.3.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/leaflet/-/leaflet-1.3.1.tgz#86f336d2fb0e2d0ff446677049a5dc34cf0ea60e"
 
 lexical-scope@^1.2.0:
   version "1.2.0"
@@ -3211,11 +3219,12 @@ onetime@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-1.1.0.tgz#a1f7838f8314c516f05ecefcbc4ccfe04b4ed789"
 
-onsenui@~2.8.0:
-  version "2.8.2"
-  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.8.2.tgz#e1311e8831fbeb84b1be91f641c604bb3fc48600"
+onsenui@~2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/onsenui/-/onsenui-2.9.1.tgz#08db80f96eb773ca4544161a8bee9a289f8f1cac"
   dependencies:
     "@onsenui/custom-elements" "1.0.0"
+    "@onsenui/fastclick" "^1.1.0"
     core-js "^2.5.1"
 
 open@0.0.5:
@@ -3237,24 +3246,24 @@ opening_hours@~3.5.0:
     suncalc "^1.8.0"
     uglify-js "^2.7.5"
 
-openvegemap@0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/openvegemap/-/openvegemap-0.6.2.tgz#2fd69820840e88bb5faa82f52eadf0ec2751f1ae"
+openvegemap@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/openvegemap/-/openvegemap-0.7.0.tgz#f7ff05567ab7f71dd415b298a2ece239358c51b1"
   dependencies:
     css-loader "~0.28.7"
     drmonty-leaflet-awesome-markers "~2.0.2"
     file-loader "~1.1.5"
     i18next-client "~1.11.4"
-    leaflet "~1.2.0"
+    leaflet "~1.3.0"
     leaflet-control-geocoder "~1.5.5"
     leaflet-info-control "~0.3.0"
     leaflet-loader "~0.0.1"
     leaflet-overpass-layer "~2.8.0"
     leaflet-plugins "~3.0.0"
-    onsenui "~2.8.0"
+    onsenui "~2.9.1"
     opening_hours "~3.5.0"
     string.prototype.padstart "~3.0.0"
-    style-loader "~0.19.0"
+    style-loader "~0.20.1"
     webpack "~3.10.0"
 
 os-browserify@^0.3.0:
@@ -4249,6 +4258,13 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
+schema-utils@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.3.tgz#e2a594d3395834d5e15da22b48be13517859458e"
+  dependencies:
+    ajv "^5.0.0"
+    ajv-keywords "^2.1.0"
+
 semver-diff@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/semver-diff/-/semver-diff-2.1.0.tgz#4bbb8437c8d37e4b0cf1a68fd726ec6d645d6d36"
@@ -4578,12 +4594,12 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@~0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.0.tgz#7258e788f0fee6a42d710eaf7d6c2412a4c50759"
+style-loader@~0.20.1:
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.1.tgz#33ac2bf4d5c65a8906bc586ad253334c246998d0"
   dependencies:
-    loader-utils "^1.0.2"
-    schema-utils "^0.3.0"
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.3"
 
 subarg@^1.0.0:
   version "1.0.0"
