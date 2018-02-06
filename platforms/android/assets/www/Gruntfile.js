@@ -4,11 +4,11 @@ module.exports = function (grunt) {
     grunt.initConfig(
         {
             jslint: {
-                meta: {
-                    src: ['*.js']
-                },
                 js: {
                     src: 'js/*.js'
+                },
+                meta: {
+                    src: ['*.js']
                 }
             },
             csslint: {
@@ -52,7 +52,6 @@ module.exports = function (grunt) {
         }
     );
 
-    require('grunt-loadnpmtasks').extend(grunt);
     grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-jsonlint');
     grunt.loadNpmTasks('grunt-fixpack');
