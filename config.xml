@@ -21,7 +21,7 @@
     </universal-links>
     <preference name="android-minSdkVersion" value="19" />
     <engine name="android" spec="^6.2.3" />
-    <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="cordova-universal-links-plugin" spec="^1.2.1" />
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
 </widget>

@@ -1029,13 +1029,9 @@ cordova-lib@7.1.0:
     valid-identifier "0.0.1"
     xcode "^0.9.0"
 
-cordova-plugin-compat@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-compat/-/cordova-plugin-compat-1.2.0.tgz#0bc65757276ebd920c012ce920e274177576373e"
-
-cordova-plugin-geolocation@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz#1dd00023d1f1a2ce330f8767ed08f7b738fe7184"
+cordova-plugin-geolocation@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-geolocation/-/cordova-plugin-geolocation-4.0.1.tgz#4703fa649d2405d25a9a732c99ebf868754a2c04"
 
 cordova-plugin-whitelist@^1.3.2:
   version "1.3.3"
