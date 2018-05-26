@@ -1,44 +1,33 @@
 {
   "name": "cordova-plugin-geolocation",
-  "version": "2.4.3",
+  "version": "4.0.1",
   "description": "Cordova Geolocation Plugin",
   "cordova": {
     "id": "cordova-plugin-geolocation",
     "platforms": [
       "android",
-      "amazon-fireos",
       "ios",
-      "blackberry10",
-      "ubuntu",
-      "wp7",
-      "wp8",
-      "windows8",
-      "windows",
-      "firefoxos"
+      "windows"
     ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/apache/cordova-plugin-geolocation.git"
   },
+  "bugs": {
+    "url": "https://issues.apache.org/jira/browse/CB"
+  },
   "keywords": [
     "cordova",
     "geolocation",
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-amazon-fireos",
     "cordova-ios",
-    "cordova-blackberry10",
-    "cordova-ubuntu",
-    "cordova-wp7",
-    "cordova-wp8",
-    "cordova-windows8",
-    "cordova-windows",
-    "cordova-firefoxos"
+    "cordova-windows"
   ],
   "scripts": {
-    "test": "npm run jshint",
-    "jshint": "node node_modules/jshint/bin/jshint www && node node_modules/jshint/bin/jshint src && node node_modules/jshint/bin/jshint tests"
+    "test": "npm run eslint",
+    "eslint": "node node_modules/eslint/bin/eslint www && node node_modules/eslint/bin/eslint src && node node_modules/eslint/bin/eslint tests"
   },
   "author": {
     "name": "Apache Software Foundation"
@@ -47,61 +36,70 @@
   "engines": {
     "cordovaDependencies": {
       "3.0.0": {
+        "cordova-android": ">=6.3.0"
+      },
+      "5.0.0": {
         "cordova": ">100"
       }
     }
   },
   "devDependencies": {
-    "jshint": "^2.6.0"
-  },
-  "bugs": {
-    "url": "https://github.com/apache/cordova-plugin-geolocation/issues"
+    "eslint": "^4.0.0",
+    "eslint-config-semistandard": "^11.0.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   },
   "homepage": "https://github.com/apache/cordova-plugin-geolocation#readme",
-  "_id": "cordova-plugin-geolocation@2.4.3",
-  "_shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz",
-  "_from": "cordova-plugin-geolocation@>=2.4.3 <3.0.0",
-  "_npmVersion": "3.10.10",
-  "_nodeVersion": "6.10.1",
+  "_id": "cordova-plugin-geolocation@4.0.1",
+  "_shasum": "4703fa649d2405d25a9a732c99ebf868754a2c04",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-4.0.1.tgz",
+  "_from": "cordova-plugin-geolocation@4.0.1",
+  "_npmVersion": "4.6.1",
+  "_nodeVersion": "8.2.1",
   "_npmUser": {
-    "name": "filmaj",
-    "email": "maj.fil@gmail.com"
+    "name": "macdonst",
+    "email": "simon.macdonald@gmail.com"
   },
   "dist": {
-    "shasum": "1dd00023d1f1a2ce330f8767ed08f7b738fe7184",
-    "tarball": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-2.4.3.tgz"
+    "shasum": "4703fa649d2405d25a9a732c99ebf868754a2c04",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-geolocation/-/cordova-plugin-geolocation-4.0.1.tgz"
   },
   "maintainers": [
     {
-      "name": "bowserj",
-      "email": "bowserj@apache.org"
+      "email": "simon.macdonald@gmail.com",
+      "name": "macdonst"
     },
     {
-      "name": "csantanapr",
-      "email": "csantana23@gmail.com"
+      "email": "bowserj@apache.org",
+      "name": "bowserj"
     },
     {
-      "name": "filmaj",
-      "email": "maj.fil@gmail.com"
+      "email": "purplecabbage@gmail.com",
+      "name": "purplecabbage"
     },
     {
-      "name": "purplecabbage",
-      "email": "purplecabbage@gmail.com"
+      "email": "maj.fil@gmail.com",
+      "name": "filmaj"
     },
     {
-      "name": "shazron",
-      "email": "shazron@gmail.com"
+      "email": "shazron@gmail.com",
+      "name": "shazron"
     },
     {
-      "name": "stevegill",
-      "email": "stevengill97@gmail.com"
+      "email": "csantana23@gmail.com",
+      "name": "csantanapr"
+    },
+    {
+      "email": "stevengill97@gmail.com",
+      "name": "stevegill"
     }
   ],
   "_npmOperationalInternal": {
-    "host": "packages-12-west.internal.npmjs.com",
-    "tmp": "tmp/cordova-plugin-geolocation-2.4.3.tgz_1493685640809_0.01689610001631081"
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/cordova-plugin-geolocation-4.0.1.tgz_1514690805550_0.5462430170737207"
   },
-  "directories": {},
-  "readme": "ERROR: No README data found!"
+  "directories": {}
 }
