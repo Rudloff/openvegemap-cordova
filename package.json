@@ -22,7 +22,7 @@
     "openvegemap": "0.7.1"
   },
   "devDependencies": {
-    "cordova": "~7.1.0"
+    "cordova": "~8.0.0"
   },
   "homepage": "https://github.com/Rudloff/openvegemap-cordova",
   "keywords": [
