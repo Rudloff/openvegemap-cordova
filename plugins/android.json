@@ -7,10 +7,10 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-geolocation": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "pro.rudloff.openvegemap"
     },
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "pro.rudloff.openvegemap"
     },
     "cordova-plugin-deeplinks": {

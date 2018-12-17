@@ -2,5 +2,5 @@ node_modules/
 platforms/android/.gradle/
 platforms/android/CordovaLib/build/
 platforms/android/app/build/
-ul_web_hooks/
+/ul_web_hooks/
 package-lock.json

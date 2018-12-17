@@ -1,12 +1,4 @@
 {
-  "cordova-plugin-compat": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-compat@^1.0.0"
-    },
-    "is_top_level": false,
-    "variables": {}
-  },
   "cordova-plugin-whitelist": {
     "source": {
       "type": "registry",
@@ -18,7 +10,7 @@
   "cordova-plugin-geolocation": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-geolocation@4.0.1"
+      "id": "cordova-plugin-geolocation@^4.0.1"
     },
     "is_top_level": true,
     "variables": {}
@@ -26,7 +18,7 @@
   "cordova-plugin-deeplinks": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-deeplinks"
+      "id": "cordova-plugin-deeplinks@^1.1.0"
     },
     "is_top_level": true,
     "variables": {}

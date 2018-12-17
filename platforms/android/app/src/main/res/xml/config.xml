@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget android-versionCode="7021" id="pro.rudloff.openvegemap" version="0.7.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <feature name="Geolocation">
-        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
-    </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
     <feature name="UniversalLinks">
         <param name="android-package" value="com.nordnetab.cordova.ul.UniversalLinksPlugin" />

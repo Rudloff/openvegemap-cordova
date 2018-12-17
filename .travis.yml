@@ -2,13 +2,12 @@
 language: android
 android:
     components:
-        - tools
-        - android-24
+        - build-tools-26.0.2
+        - android-27
 jdk: oraclejdk8
 before_install:
-    - nvm install 6
-    - npm install -g cordova
+    - nvm install 8
 install:
-    - npm install
-    - cordova prepare
-script: cordova build android
+    - yarn install
+    - yarn cordova prepare
+script: yarn cordova build android

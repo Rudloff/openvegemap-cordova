@@ -26,8 +26,8 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-geolocation": "4.0.1",
-  "cordova-plugin-whitelist": "1.3.2",
   "cordova-plugin-deeplinks": "1.1.0"
 };
 // BOTTOM OF METADATA

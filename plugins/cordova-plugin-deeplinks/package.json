@@ -1,19 +1,19 @@
 {
-  "_from": "cordova-plugin-deeplinks",
+  "_from": "cordova-plugin-deeplinks@^1.1.0",
   "_id": "cordova-plugin-deeplinks@1.1.0",
   "_inBundle": false,
   "_integrity": "sha512-xXixVrXfX9lvhMpi1qlzkiTeOmT7P5LfgqIBUCePYSutuscX+SeRGsVM38J8nhpYIefHAJqz7ULr4hT7tunUCA==",
   "_location": "/cordova-plugin-deeplinks",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-deeplinks",
+    "raw": "cordova-plugin-deeplinks@^1.1.0",
     "name": "cordova-plugin-deeplinks",
     "escapedName": "cordova-plugin-deeplinks",
-    "rawSpec": "",
+    "rawSpec": "^1.1.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^1.1.0"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-deeplinks/-/cordova-plugin-deeplinks-1.1.0.tgz",
   "_shasum": "c7c2f95ef35ee6747325db17ba177b231a21b469",
-  "_spec": "cordova-plugin-deeplinks",
+  "_spec": "cordova-plugin-deeplinks@^1.1.0",
   "_where": "/home/pierre/www/openvegemap-cordova",
   "author": {
     "name": "Nikolay Demyankov for Nordnet Bank AB"
