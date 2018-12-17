@@ -20,6 +20,7 @@
         <host name="openvegemap.netlib.re" scheme="http" />
     </universal-links>
     <preference name="android-minSdkVersion" value="19" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />

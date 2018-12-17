@@ -32,4 +32,5 @@
     </universal-links>
     <preference name="loglevel" value="DEBUG" />
     <preference name="android-minSdkVersion" value="19" />
+    <preference name="AndroidLaunchMode" value="singleInstance" />
 </widget>
