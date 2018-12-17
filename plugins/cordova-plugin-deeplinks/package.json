@@ -1,0 +1,79 @@
+{
+  "_from": "cordova-plugin-deeplinks",
+  "_id": "cordova-plugin-deeplinks@1.1.0",
+  "_inBundle": false,
+  "_integrity": "sha512-xXixVrXfX9lvhMpi1qlzkiTeOmT7P5LfgqIBUCePYSutuscX+SeRGsVM38J8nhpYIefHAJqz7ULr4hT7tunUCA==",
+  "_location": "/cordova-plugin-deeplinks",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-deeplinks",
+    "name": "cordova-plugin-deeplinks",
+    "escapedName": "cordova-plugin-deeplinks",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-deeplinks/-/cordova-plugin-deeplinks-1.1.0.tgz",
+  "_shasum": "c7c2f95ef35ee6747325db17ba177b231a21b469",
+  "_spec": "cordova-plugin-deeplinks",
+  "_where": "/home/pierre/www/openvegemap-cordova",
+  "author": {
+    "name": "Nikolay Demyankov for Nordnet Bank AB"
+  },
+  "bugs": {
+    "url": "https://github.com/e-imaxina/cordova-plugin-deeplinks/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-deeplinks",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "dependencies": {
+    "mkpath": ">=1.0.0",
+    "node-version-compare": ">=1.0.1",
+    "plist": ">=1.2.0",
+    "rimraf": ">=2.4",
+    "xml2js": ">=0.4"
+  },
+  "deprecated": false,
+  "description": "Cordova plugin to add in your application support for Universal Links (iOS 9) and Deep Links (Android). Basically, open application through the link in the browser.",
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=4"
+    }
+  ],
+  "homepage": "https://github.com/e-imaxina/cordova-plugin-deeplinks#readme",
+  "keywords": [
+    "cordova",
+    "links",
+    "universal",
+    "deep links",
+    "universal links",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "ios",
+    "android"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-deeplinks",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/e-imaxina/cordova-plugin-deeplinks.git"
+  },
+  "version": "1.1.0"
+}
