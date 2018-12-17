@@ -1,0 +1,80 @@
+.map, body, html {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+.leaflet-control-loader {
+    z-index: 2000;
+}
+
+.leaflet-control-container .info-control {
+    color: #555;
+    font-size: 12px;
+    line-height: 18px;
+    padding-left: 0;
+    padding-right: 8px;
+}
+.info-control i {
+    clear:left;
+    color: white;
+    float: left;
+    margin-right: 8px;
+    min-height: 15px;
+    padding-top: 3px;
+    text-align:center;
+    width: 18px;
+}
+
+ons-splitter-side a {
+    text-decoration: none;
+}
+
+.alert-dialog-button,
+ons-list-item[tappable],
+ons-toolbar-button {
+    cursor: pointer;
+}
+
+.list__item:first-child {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-top: 1px;
+}
+
+.leaflet-control-permalink {
+    display: none;
+}
+
+.leaflet-control-geocoder-no-error {
+    display:none;
+}
+
+.leaflet-control-geocoder-error {
+    display: block;
+}
+
+.hoursTable {
+    padding-bottom: 1em;
+    padding-top: 1em;
+    width: 100%;
+}
+
+/* Lower the menu because we display it behind the toolbar. */
+.menu .list,
+.leaflet-top {
+    padding-top: 55px;
+}
+
+/* The toolbar is not correctly styled because it is outside of ons-page. */
+.toolbar {
+    font-family: -apple-system,Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+}
+
+/* Hide the menu button when the menu is always visible. */
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
