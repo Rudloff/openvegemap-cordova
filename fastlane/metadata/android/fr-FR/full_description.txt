@@ -1,0 +1,4 @@
+Cette app vous permet de trouver des restaurants végétariens et véganes proches de vous.
+Elle est basée sur les données d’OpenStreetMap.
+
+Une version web est disponible sur <a href="https://openvegemap.netlib.re/">openvegemap.netlib.re</a>.
