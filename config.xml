@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="8011" id="pro.rudloff.openvegemap" version="0.8.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="8011" id="pro.rudloff.openvegemap" version="0.8.1" xmlns="http://www.w3.org/ns/widgets"
+        xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>OpenVegeMap</name>
     <description>
         OpenVegeMap Cordova app
@@ -7,22 +8,22 @@
     <author email="contact@rudloff.pro" href="https://rudloff.pro/">
         Pierre Rudloff
     </author>
-    <content src="index.html" />
-    <icon src="www/img/logo_512.png" />
-    <access origin="https://maps.wikimedia.org" />
-    <access origin="https://overpass-api.de" />
-    <access origin="https://nominatim.openstreetmap.org" />
-    <access origin="https://liberapay.com" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <content src="index.html"/>
+    <icon src="www/img/logo_512.png"/>
+    <access origin="https://maps.wikimedia.org"/>
+    <access origin="https://overpass-api.de"/>
+    <access origin="https://nominatim.openstreetmap.org"/>
+    <access origin="https://liberapay.com"/>
+    <allow-intent href="http://*/*"/>
+    <allow-intent href="https://*/*"/>
     <universal-links>
-        <host name="openvegemap.netlib.re" scheme="https" />
-        <host name="openvegemap.netlib.re" scheme="http" />
+        <host name="openvegemap.netlib.re" scheme="https"/>
+        <host name="openvegemap.netlib.re" scheme="http"/>
     </universal-links>
-    <preference name="android-minSdkVersion" value="19" />
-    <preference name="AndroidLaunchMode" value="singleInstance" />
-    <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
-    <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
-    <plugin name="cordova-plugin-deeplinks" spec="^1.1.0" />
-    <engine name="android" spec="^7.1.4" />
+    <preference name="android-minSdkVersion" value="19"/>
+    <preference name="AndroidLaunchMode" value="singleInstance"/>
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.2"/>
+    <plugin name="cordova-plugin-geolocation" spec="^4.0.1"/>
+    <plugin name="cordova-plugin-deeplinks" spec="^1.1.0"/>
+    <engine name="android" spec="^7.1.4"/>
 </widget>
