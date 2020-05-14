@@ -1,36 +1,8 @@
 /*jslint browser: true, node: true*/
 /*global window, localStorage, universalLinks*/
-/*property
-    AwesomeMarkers, Control, DomEvent, DomUtil, Geocoder, Nominatim,
-    OverPassLayer, Permalink, UrlUtil, _alts, _container, _errorElement,
-    _geocode, _input, addControl, addTo, advance, afterRequest, amenity,
-    attribution, beforeRequest, bindTooltip, center, checked, circle, close,
-    content, control, craft, create, createAlertDialog, cuisine,
-    defaultMarkGeocode, detectRetina, dialog, direction, elements,
-    enableHighAccuracy, endPoint, endsWith, feature, filtersDialog, fitBounds,
-    forEach, geocode, geocodeDialog, geocoder, get, getAttribute, getBounds,
-    getDate, getDay, getElementsByName, getHours, getItem, getIterator,
-    getMinutes, getMonth, getState, getStateString, getZoom, hash, hide,
-    hostname, href, icon, id, indexOf, init, innerHTML, lat, layerGroup,
-    loader, localStorage, locate, lon, map, marker, markerColor, maxBounds,
-    maxBoundsViscosity, maxNativeZoom, maxZoom, minZoom,
-    minZoomIndicatorEnabled, name, on, onSuccess, open, opening_hours, other,
-    padStart, phone, position, prefix, push, query, queryParse, ready,
-    removeFrom, replace, serviceUrl, setAttribute, setDate, setHours, setIcon,
-    setItem, setMinutes, setView, shop, show, some, tags, takeaway, target,
-    then, tileLayer, toString, type, useLocalStorage, useLocation, vegan,
-    vegetarian, website, zoom, zoomToast,
-    toLocaleDateString, weekday, getTime, stringify, parse,
-    google, openroute, graphhopper, value, keys, preferencesDialog,
-    InfoControl, shim, currentTarget, dataset,
-    getMarkerIcon, getColor, getLayer, getPopupRows, getIcon, getOpeningHoursTable,
-    applyFilters, getCurFilter, createLayers, setFilter, addMarker,
-    callback, toggle, subscribe,
-    Circle, radius, setLatLng, setRadius, latlng, latlng, accuracy
-*/
 
 if (typeof window !== 'object') {
-    throw 'OpenVegeMap must be used in a browser.';
+    throw new Error('OpenVegeMap must be used in a browser.');
 }
 
 // Check old browsers
@@ -43,16 +15,18 @@ padStart.shim();
 
 // JS
 var ons = require('onsenui'),
-    L = require('leaflet');
+    L = require('leaflet'),
+    OH = require('opening_hours');
 require('leaflet-loader/leaflet-loader.js');
 require('leaflet-plugins/control/Permalink.js');
-require('leaflet-overpass-layer/dist/OverPassLayer.bundle.js');
+require('leaflet-overpass-layer');
 require('leaflet-control-geocoder');
 require('drmonty-leaflet-awesome-markers');
 require('leaflet-info-control');
 
 var openingHours = require('./opening_hours.js'),
     layers = require('./layers.js'),
+    geocoding = require('./geocoding.js'),
     POI = require('./poi.js'),
     Popup = require('./popup.js');
 
@@ -68,7 +42,6 @@ function openvegemapMain() {
         circle,
         curFeatures = [],
         menu,
-        geocoder,
         dialogs = {},
         dialogFunctions = {},
         zoomWarningDisplayed = false,
@@ -76,11 +49,13 @@ function openvegemapMain() {
             google: 'https://www.google.com/maps/dir//{LAT},{LON}',
             graphhopper: 'https://graphhopper.com/maps/?point=&point={LAT},{LON}',
             openroute: 'https://openrouteservice.org/directions?a=null,null,{LAT},{LON}'
-        };
+        },
+        overpassLayer,
+        overpassQuery = 'node({{bbox}})[~"^diet:.*$"~"."];out;way({{bbox}})[~"^diet:.*$"~"."];out center;';
 
     /**
      * Open a dialog.
-     * @param  {MousEvent} e Event that triggered the dialog
+     * @param  {MouseEvent} e Event that triggered the dialog
      * @return {Void}
      */
     function openDialog(e) {
@@ -113,28 +88,70 @@ function openvegemapMain() {
     }
 
     /**
+     * Add a link to https://lib.reviews/.
+     * @param {Event} e Event
+     */
+    function addReviewLink(e) {
+        if (e.target.readyState === XMLHttpRequest.DONE) {
+            if (e.target.status === 200) {
+                var data = JSON.parse(e.target.response);
+                var reviewLink = L.DomUtil.get('reviewLink');
+                reviewLink.setAttribute('href', 'https://lib.reviews/' + data.thing.urlID);
+                reviewLink.removeAttribute('disabled');
+            }
+        }
+    }
+
+    /**
+     * Start an AJAX request to get reviews from https://lib.reviews/.
+     * @param  {Object} feature POI
+     * @return {Void}
+     */
+    function loadReviews(feature) {
+        var reviewLink = L.DomUtil.get('reviewLink');
+        reviewLink.removeAttribute('href');
+        reviewLink.setAttribute('disabled', 'disabled');
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'https://lib.reviews/api/thing?url=https://www.openstreetmap.org/' + feature.type + '/' + feature.id, true);
+        request.onreadystatechange = addReviewLink;
+        request.send();
+    }
+
+    /**
      * Display a marker popup.
      * @param  {Object} e Leaflet DomEvent
      * @return {Void}
      */
     function showPopup(e) {
-        var html = '',
-            popup = new Popup(e.target.feature.tags);
-        html += popup.getPopupRows();
+        var poi = new POI(e.target.feature.tags),
+            popup = new Popup(e.target.feature.tags),
+            html = popup.getPopupRows();
         if (e.target.feature.tags.opening_hours) {
-            L.DomUtil.get('hoursTable').innerHTML = openingHours.getOpeningHoursTable(e.target.feature.tags.opening_hours);
+            try {
+                L.DomUtil.get('hoursTable').innerHTML = openingHours.getOpeningHoursTable(e.target.feature.tags.opening_hours);
+            } catch (error) {
+                console.error(
+                    'Malformed opening hours data for ' + e.target.feature.type + ' ' + e.target.feature.id + ': ' + error
+                );
+            }
         }
         if (!e.target.feature.tags.name) {
             e.target.feature.tags.name = '';
         }
-        L.DomUtil.get('mapPopupTitle').innerHTML = e.target.feature.tags.name;
+        L.DomUtil.get('mapPopupTitle').innerHTML = poi.getIcon() + '&nbsp;' + e.target.feature.tags.name;
         L.DomUtil.get('mapPopupList').innerHTML = html;
         L.DomUtil.get('gmapsLink').setAttribute('href', getRoutingUrl(e.target.feature.lat, e.target.feature.lon));
         L.DomUtil.get('editLink').setAttribute('href', 'https://editor.openvegemap.netlib.re/' + e.target.feature.type + '/' + e.target.feature.id);
         if (e.target.feature.tags.opening_hours) {
             var hoursBtn = L.DomUtil.get('hoursBtn');
-            L.DomEvent.on(hoursBtn, 'click', openDialog);
+            if (hoursBtn) {
+                L.DomEvent.on(hoursBtn, 'click', openDialog);
+            }
         }
+
+        loadReviews(e.target.feature);
+
         L.DomUtil.get('mapPopup').show();
     }
 
@@ -143,6 +160,22 @@ function openvegemapMain() {
      * @param {Object} feature POI
      */
     function addMarker(feature) {
+        // Does the user want to hide closed restaurants?
+        if (JSON.parse(localStorage.getItem('hide-closed')) && feature.tags.opening_hours) {
+            try {
+                var oh = new OH(feature.tags.opening_hours, null);
+
+                if (!oh.getState()) {
+                    // Don't add markers for closed restaurants.
+                    return;
+                }
+            } catch (error) {
+                console.error(
+                    'Malformed opening hours data for ' + feature.type + ' ' + feature.id + ': ' + error
+                );
+            }
+        }
+
         if (curFeatures.indexOf(feature.id) === -1) {
             curFeatures.push(feature.id);
             if (feature.center) {
@@ -158,10 +191,14 @@ function openvegemapMain() {
                 markerColor: poi.getColor()
             }));
             marker.on('click', showPopup);
+
+            var tooltip = poi.getIcon();
             if (feature.tags.name) {
-                marker.bindTooltip(poi.getIcon() + '&nbsp;' + feature.tags.name, {direction: 'bottom'});
+                tooltip += '&nbsp;' + feature.tags.name;
             }
-            layers.addMarker(marker, poi.getLayer());
+            marker.bindTooltip(tooltip, {direction: 'bottom'});
+
+            layers.addMarker(marker, poi.getLayer(), poi.isShop());
         }
     }
 
@@ -209,14 +246,6 @@ function openvegemapMain() {
      */
     function openMenu() {
         menu.toggle();
-    }
-
-    /**
-     * Start the geocoder.
-     * @return {Void}
-     */
-    function geocode() {
-        geocoder._geocode();
     }
 
     /**
@@ -287,18 +316,7 @@ function openvegemapMain() {
      * @return {Void}
      */
     function geocodeDialogInit() {
-        geocoder = new L.Control.Geocoder(
-            {
-                geocoder: new L.Control.Geocoder.Nominatim({serviceUrl: 'https://nominatim.openstreetmap.org/'}),
-                position: 'topleft',
-                defaultMarkGeocode: false
-            }
-        ).on('markgeocode', addGeocodeMarker);
-        geocoder._alts = L.DomUtil.get('geocodeAlt');
-        geocoder._container = dialogs.geocodeDialog;
-        geocoder._errorElement = L.DomUtil.get('geocodeError');
-        geocoder._input = L.DomUtil.get('geocodeInput');
-        L.DomEvent.on(L.DomUtil.get('geocodeDialogBtn'), 'click', geocode);
+        geocoding.init(addGeocodeMarker, dialogs.geocodeDialog);
     }
 
     /**
@@ -356,8 +374,32 @@ function openvegemapMain() {
         });
 
         localStorage.setItem('routing-provider', curProvider);
+    }
+
+    /**
+     * Remove every marker from the map and reload them.
+     * @return {Void}
+     */
+    function clearMap() {
+        curFeatures = [];
+        layers.clearLayers();
+        overpassLayer.setQuery(overpassQuery);
+    }
+
+    /**
+     * Save the preferences.
+     * @return {Void}
+     */
+    function savePreferences() {
+        setRoutingProvider();
+
+        localStorage.setItem('hide-closed', L.DomUtil.get('hide-closed').checked);
+
         dialogs.preferencesDialog.hide();
         menu.close();
+
+        // Reload markers to apply changes.
+        clearMap();
     }
 
     /**
@@ -365,7 +407,7 @@ function openvegemapMain() {
      * @return {Void}
      */
     function preferencesDialogInit() {
-        L.DomEvent.on(L.DomUtil.get('preferencesDialogBtn'), 'click', setRoutingProvider);
+        L.DomEvent.on(L.DomUtil.get('preferencesDialogBtn'), 'click', savePreferences);
     }
 
     /**
@@ -392,6 +434,8 @@ function openvegemapMain() {
             curProvider = 'google';
         }
         L.DomUtil.get(curProvider + '-routingprovider').checked = true;
+
+        L.DomUtil.get('hide-closed').checked = JSON.parse(localStorage.getItem('hide-closed'));
     }
 
     /**
@@ -478,10 +522,10 @@ function openvegemapMain() {
             new L.Control.InfoControl(
                 {
                     position: 'bottomright',
-                    content: '<div title="Restaurants that serve only vegan food"><i class="fa fa-dot-circle-o" style="background-color: #72AF26"></i> Vegan only</div>'
+                    content: '<div title="Restaurants that serve only vegan food"><i class="fa fa-bullseye" style="background-color: #72AF26"></i> Vegan only</div>'
                             + '<div title="Restaurants that serve vegan food and other food"><i class="fa fa-circle" style="background-color: #72AF26"></i> Vegan friendly</div>'
-                            + '<div title="Restaurants that serve only vegetarian food but no vegan food"><i class="fa fa-circle-thin" style="background-color: #728224"></i> Vegetarian only</div>'
-                            + '<div title="Restaurants that serve vegetarian food and meat but no vegan food"><i class="fa fa-circle-o" style="background-color: #728224"></i> Vegetarian friendly</div>'
+                            + '<div title="Restaurants that serve only vegetarian food but no vegan food"><i class="fa fa-circle-notch" style="background-color: #728224"></i> Vegetarian only</div>'
+                            + '<div title="Restaurants that serve vegetarian food and meat but no vegan food"><i class="fa fa-dot-circle" style="background-color: #728224"></i> Vegetarian friendly</div>'
                             + '<div title="Restaurants that serve meat"><i class="fa fa-ban" style="background-color: #D63E2A"></i> Not vegetarian</div>'
                             + '<div title="Restaurants we don\'t have enough information about"><i class="fa fa-question" style="background-color: #575757"></i> Unknown</div>'
                 }
@@ -489,9 +533,9 @@ function openvegemapMain() {
         );
 
         // Overpass
-        var overpassLayer = new L.OverPassLayer({
+        overpassLayer = new L.OverPassLayer({
             endPoint: 'https://overpass-api.de/api/',
-            query: 'node({{bbox}})[~"^diet:.*$"~"."];out;way({{bbox}})[~"^diet:.*$"~"."];out center;',
+            query: overpassQuery,
             beforeRequest: showLoader,
             afterRequest: hideLoader,
             onSuccess: addMarkers,
@@ -502,7 +546,7 @@ function openvegemapMain() {
 
         // Layers control
         layers.createLayers(map);
-        layers.getCurFilter().forEach(layers.setFilter);
+        layers.refreshFilters();
 
         // Dialog functions
         dialogFunctions = {
@@ -551,5 +595,5 @@ var openvegemap = openvegemapMain();
 if (typeof ons === 'object') {
     ons.ready(openvegemap.init);
 } else {
-    throw 'Onsen is not loaded';
+    throw new Error('Onsen is not loaded');
 }

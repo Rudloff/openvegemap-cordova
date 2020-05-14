@@ -48,15 +48,23 @@ function POI(tags) {
         return false;
     }
 
+    /**
+     * Check if a POI is a shop.
+     * @return {Boolean}
+     */
+    function isShop() {
+        if (tags.shop) {
+            return true;
+        }
+
+        return false;
+    }
 
     /**
      * Get the map layer in which a POI should be added.
      * @return {string} Layer name
      */
     function getLayer() {
-        if (tags.shop) {
-            return 'shop';
-        }
         if (isOnlyDiet('vegan')) {
             return 'vegan-only';
         }
@@ -69,6 +77,7 @@ function POI(tags) {
         if (isDiet('vegetarian')) {
             return 'vegetarian';
         }
+
         return 'other';
     }
 
@@ -95,16 +104,16 @@ function POI(tags) {
      */
     function getMarkerIcon() {
         if (isOnlyDiet('vegan')) {
-            return 'dot-circle-o';
+            return 'bullseye';
         }
         if (isDiet('vegan')) {
             return 'circle';
         }
         if (isOnlyDiet('vegetarian')) {
-            return 'circle-thin';
+            return 'circle-notch';
         }
         if (isDiet('vegetarian')) {
-            return 'circle-o';
+            return 'dot-circle';
         }
         if (isNotDiet('vegetarian')) {
             return 'ban';
@@ -155,6 +164,8 @@ function POI(tags) {
             return '🍸';
         case 'pub':
             return '🍺';
+        case 'vending_machine':
+            return 'Vending machine';
         default:
             return '';
         }
@@ -181,7 +192,8 @@ function POI(tags) {
         getMarkerIcon: getMarkerIcon,
         getColor: getColor,
         getLayer: getLayer,
-        getIcon: getIcon
+        getIcon: getIcon,
+        isShop: isShop
     };
 }
 
