@@ -40,6 +40,26 @@
             }
           ]
         }
+      },
+      "app/src/main/AndroidManifest.xml": {
+        "parents": {
+          "/manifest": [
+            {
+              "xml": "<manifest android:installLocation=\"auto\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:hardwareAccelerated": "true",
+                "android:installLocation": "auto",
+                "android:versionCode": "9011",
+                "android:versionName": "0.9.1",
+                "package": "pro.rudloff.openvegemap",
+                "xmlns:android": "http://schemas.android.com/apk/res/android"
+              }
+            }
+          ]
+        }
       }
     }
   },

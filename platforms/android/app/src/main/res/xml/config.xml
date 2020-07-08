@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="9011" id="pro.rudloff.openvegemap" version="0.9.1" xmlns="http://www.w3.org/ns/widgets">
+<widget android-versionCode="9011" id="pro.rudloff.openvegemap" version="0.9.1" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
@@ -26,6 +26,9 @@
     <access origin="https://liberapay.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest">
+        <manifest android:installLocation="auto" />
+    </edit-config>
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />
