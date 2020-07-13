@@ -36,6 +36,7 @@
   "main": "www/dist/bundle.js",
   "repository": "https://github.com/Rudloff/openvegemap-cordova.git",
   "scripts": {
-    "clean": "rm -r platforms/ plugins/; cordova prepare"
+    "clean": "rm -r platforms/ plugins/; cordova prepare",
+    "postinstall": "rm -rf www/node_modules/"
   }
 }
