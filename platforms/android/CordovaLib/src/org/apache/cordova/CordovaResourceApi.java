@@ -294,7 +294,7 @@ public class CordovaResourceApi {
                     mimeType = mimeType.split(";")[0];
                 }
                 int length = conn.getContentLength();
-                InputStream inputStream = null;
+                InputStream inputStream;
                 if ("gzip".equals(conn.getContentEncoding())) {
                     inputStream = new GZIPInputStream(conn.getInputStream());
                 } else {
