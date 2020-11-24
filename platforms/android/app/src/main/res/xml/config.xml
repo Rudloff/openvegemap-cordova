@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="9011" id="pro.rudloff.openvegemap" version="0.9.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="10001" id="pro.rudloff.openvegemap" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android">
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
@@ -19,13 +19,22 @@
         Pierre Rudloff
     </author>
     <content src="index.html" />
-    <icon src="www/img/logo_512.png" />
+    <icon height="192" src="www/img/android-chrome-192x192.png" width="192" />
+    <icon height="512" src="www/img/android-chrome-512x512.png" width="512" />
+    <icon height="16" src="www/img/favicon-16x16.png" width="16" />
+    <icon height="32" src="www/img/favicon-32x32.png" width="32" />
+    <icon height="144" src="www/img/mstile-144x144.png" width="144" />
+    <icon height="150" src="www/img/mstile-150x150.png" width="150" />
+    <icon height="310" src="www/img/mstile-310x310.png" width="310" />
     <access origin="https://maps.wikimedia.org" />
     <access origin="https://overpass-api.de" />
     <access origin="https://nominatim.openstreetmap.org" />
     <access origin="https://liberapay.com" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest">
+        <manifest android:installLocation="auto" />
+    </edit-config>
     <universal-links>
         <host name="openvegemap.netlib.re" scheme="https" />
         <host name="openvegemap.netlib.re" scheme="http" />
