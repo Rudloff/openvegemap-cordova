@@ -19,7 +19,13 @@
         Pierre Rudloff
     </author>
     <content src="index.html" />
-    <icon src="www/img/logo_512.png" />
+    <icon height="192" src="www/img/android-chrome-192x192.png" width="192" />
+    <icon height="512" src="www/img/android-chrome-512x512.png" width="512" />
+    <icon height="16" src="www/img/favicon-16x16.png" width="16" />
+    <icon height="32" src="www/img/favicon-32x32.png" width="32" />
+    <icon height="144" src="www/img/mstile-144x144.png" width="144" />
+    <icon height="150" src="www/img/mstile-150x150.png" width="150" />
+    <icon height="310" src="www/img/mstile-310x310.png" width="310" />
     <access origin="https://maps.wikimedia.org" />
     <access origin="https://overpass-api.de" />
     <access origin="https://nominatim.openstreetmap.org" />
