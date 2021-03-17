@@ -15,7 +15,7 @@
     }
   },
   "dependencies": {
-    "cordova-android": "^7.1.4",
+    "cordova-android": "^9.0.0",
     "cordova-plugin-deeplinks": "^1.1.0",
     "cordova-plugin-geolocation": "^4.0.1",
     "cordova-plugin-whitelist": "^1.3.2",
